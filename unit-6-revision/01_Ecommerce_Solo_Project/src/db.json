@@ -1,0 +1,71 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "Size": "3XL",
+      "Rating": 5,
+      "Offer": 99,
+      "Image_url": "https://i.ytimg.com/vi/hY8kw2quHEM/maxresdefault.jpg",
+      "Price": "$8.90",
+      "Brand": "Lakin-Kessler",
+      "Description": "Sed ante. Vivamus tortor.",
+      "Gender": "Female"
+    },
+    
+    {
+      "id": 2,
+      "Size": "L",
+      "Rating": 4,
+      "Offer": 79,
+      "Image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmgLTefziEZ2che0AibsyfMLFdz1ivBViKXA&usqp=CAU",
+      "Price": "$6.98",
+      "Brand": "Tremblay-Shields",
+      "Description": "Phasellus id sapien in sapien iaculis congue. Vivamus metus arcu, adipiscing molestie, hendrerit at, vulputate vitae, nisl.",
+      "Gender": "Female"
+    },
+    {
+      "id": 3,
+      "Size": "2XL",
+      "Rating": 3,
+      "Offer": 89,
+      "Image_url": "https://i.etsystatic.com/29332089/r/il/ee929b/3358970837/il_340x270.3358970837_sijj.jpg",
+      "Price": "$4.58",
+      "Brand": "Heidenreich, Boehm and Kling",
+      "Description": "Aliquam non mauris. Morbi non lectus. Aliquam sit amet diam in magna bibendum imperdiet. Nullam orci pede, venenatis non, sodales sed, tincidunt eu, felis.",
+      "Gender": "Male"
+    },
+    {
+      "id": 4,
+      "Size": "L",
+      "Rating": 5,
+      "Offer": 42,
+      "Image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRwl0F9Z2fah2pWfvviIkpxugQR9xeQCNT7YTVciGk3qQJVX2Y4cDYXTU1NE8xDnYWckKY&usqp=CAU",
+      "Price": "$5.34",
+      "Brand": "Stoltenberg, Bosco and Stoltenberg",
+      "Description": "Etiam pretium iaculis justo. In hac habitasse platea dictumst. Etiam faucibus cursus urna. Ut tellus.",
+      "Gender": "Female"
+    },
+    {
+      "id": 5,
+      "Size": "2XL",
+      "Rating": 5,
+      "Offer": 51,
+      "Image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPTrseTIa6B_M23vn4VfCbhfqHbe8m1JigxA&usqp=CAU",
+      "Price": "$2.30",
+      "Brand": "Breitenberg-Kiehn",
+      "Description": "Donec ut mauris eget massa tempor convallis. Nulla neque libero, convallis eget, eleifend luctus, ultricies eu, nibh. Quisque id justo sit amet sapien dignissim vestibulum.",
+      "Gender": "Male"
+    },
+    {
+      "id": 6,
+      "Size": "2XL",
+      "Rating": 3,
+      "Offer": 51,
+      "Image_url": "https://i.pinimg.com/736x/ce/40/57/ce40575a433638156df2c87e88f3051b.jpg",
+      "Price": "$2.30",
+      "Brand": "Breitenberg-Kiehn",
+      "Description": "Donec ut mauris eget massa tempor convallis. Nulla neque libero, convallis eget, eleifend luctus, ultricies eu, nibh. Quisque id justo sit amet sapien dignissim vestibulum.",
+      "Gender": "Female"
+    }
+  ]
+}

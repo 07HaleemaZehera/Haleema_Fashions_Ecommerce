@@ -1,7 +1,10 @@
 import React from 'react'
 import {Routes,Route} from "react-router-dom" 
 import HomePage from '../Components/Home/HomePage'
+import Mens from "../Components/Products/Mens"
 import Not_Found from '../Components/Not_Found'
+import Kids from '../Components/Products/Kids'
+import Womens from '../Components/Products/Womens'
 
 const All_Routes = () => {
   return (
@@ -9,10 +12,9 @@ const All_Routes = () => {
       <Routes>
         <Route path="/" element={<HomePage/>} ></Route>
         <Route path="/*" element={<Not_Found/>}></Route>
-        <Route></Route>
-        <Route></Route>
-        <Route></Route>
-        <Route></Route>
+        <Route path="/men" element={<Mens/>}></Route>
+        <Route path="/kids" element={<Kids/>}></Route>
+        <Route path="/womens" element={<Womens/>}></Route>
         <Route></Route>
       </Routes>
     </div>

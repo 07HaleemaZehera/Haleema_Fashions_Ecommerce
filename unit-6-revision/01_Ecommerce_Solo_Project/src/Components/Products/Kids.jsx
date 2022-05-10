@@ -1,9 +1,9 @@
 import React from 'react'
 
-export default function Kid() {
+export default function Kids() {
   return (
     <div>
-      <h2>Women page</h2>
+      <h2>Kids page</h2>
     </div>
   )
 }
