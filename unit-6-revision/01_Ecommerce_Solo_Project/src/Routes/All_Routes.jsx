@@ -5,6 +5,8 @@ import Mens from "../Components/Products/Mens"
 import Not_Found from '../Components/Not_Found'
 import Kids from '../Components/Products/Kids'
 import Womens from '../Components/Products/Womens'
+import Products from '../Components/Products/Products'
+
 
 const All_Routes = () => {
   return (
@@ -15,6 +17,7 @@ const All_Routes = () => {
         <Route path="/men" element={<Mens/>}></Route>
         <Route path="/kids" element={<Kids/>}></Route>
         <Route path="/womens" element={<Womens/>}></Route>
+        <Route path='/products' element={<Products/>} />
         <Route></Route>
       </Routes>
     </div>

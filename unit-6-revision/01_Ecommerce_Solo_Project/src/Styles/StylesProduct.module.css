@@ -1,0 +1,15 @@
+.product_Parent{
+    width:100%;
+    height:100%;
+    border: 2px  solid blue;
+    display: grid;
+    
+    justify-content: center;
+    text-align: center;
+
+}
+.product_Child{
+    width: 95% ;
+    height: 50%;
+
+} 

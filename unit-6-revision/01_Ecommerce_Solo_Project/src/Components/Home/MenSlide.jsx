@@ -4,7 +4,7 @@ import Styles from "../../Styles/Styles.module.css"
 
 const MenSlide = () => {
   return (
-    <div className={Styles.SliderChild}>
+    // <div className={Styles.SliderChild}>
       <div className={Styles.SliderImages}>
         <div className={Styles.Slider_Titiles}>Men Fashion </div>
         {/* <div className={Styles.Slider_images}>
@@ -15,7 +15,7 @@ const MenSlide = () => {
           />
         </div> */}
       </div>
-    </div>
+    // </div>
   );
 };
 
