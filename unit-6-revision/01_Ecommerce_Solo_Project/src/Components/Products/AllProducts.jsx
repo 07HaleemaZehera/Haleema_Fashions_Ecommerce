@@ -1,9 +1,9 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getJson_action_Products } from "../../Redux/Actions/actionProducts";
+import { getJson_action_Products, getMen_Json_Data } from "../../Redux/Actions/actionProducts";
 import Styles from "../../Styles/StylesProduct.module.css";
 
-const Products = () => {
+const AllProducts = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getJson_action_Products());
@@ -39,4 +39,4 @@ const Products = () => {
   );
 };
 
-export default Products;
+export default AllProducts;

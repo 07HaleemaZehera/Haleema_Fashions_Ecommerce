@@ -135,6 +135,7 @@
   border: 1px solid rgb(54, 61, 54);
   margin: auto;
   margin-top: 20px;
+  background-color: rgba(32, 22, 22, 0.741);
 }
 /* .footer_Head{
     width: 20%;
@@ -150,6 +151,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: rgba(128, 128, 128, 0.119);
    
 }
 .mainParentChild{

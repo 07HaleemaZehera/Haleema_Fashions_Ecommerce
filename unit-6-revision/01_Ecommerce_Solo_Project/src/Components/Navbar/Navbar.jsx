@@ -16,11 +16,21 @@ export default function Navbar() {
         </div>
         <div className={Styles.category}>
           <div className={Styles.men}>
-            <Link to={"/products"}>
+            <Link to={"all/products"}>
+              <p className={Styles.men}>ALL PRODUCTS</p>
+            </Link>
+          </div>
+          <div className={Styles.men}>
+            <Link to={"/product/men"}>
               <p className={Styles.men}>MEN</p>
             </Link>
           </div>
-          <div className={Styles.women}>WOMEN</div>
+          
+          <div className={Styles.women}>
+            <Link to={"/product/women"}>
+              <p className={Styles.men}>WOMEN</p>
+            </Link>
+          </div>
           <div className={Styles.baby}>BABY</div>
           <div className={Styles.accessories}>PERFUMES</div>
         </div>
