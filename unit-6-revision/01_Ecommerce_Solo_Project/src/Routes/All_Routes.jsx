@@ -6,6 +6,8 @@ import Not_Found from '../Components/Not_Found'
 import Kids from '../Components/Products/Kids'
 import Womens from '../Components/Products/Womens'
 import Products from '../Components/Products/Products'
+import ProductDetails from '../Components/Products/ProductDetails'
+import CartPage from '../Components/Cart/CartPage'
 
 
 const All_Routes = () => {
@@ -18,7 +20,8 @@ const All_Routes = () => {
         <Route path="/kids" element={<Kids/>}></Route>
         <Route path="/product/women" element={<Womens/>}></Route>
         <Route path='/products' element={<Products/>} />
-        <Route></Route>
+        <Route path='/details/:id' element={<ProductDetails/>}></Route>
+        <Route path='/cart' element={<CartPage/>}></Route>
       </Routes>
     </div>
   )

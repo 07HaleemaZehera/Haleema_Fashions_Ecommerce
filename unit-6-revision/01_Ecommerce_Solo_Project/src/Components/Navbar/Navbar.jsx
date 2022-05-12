@@ -55,10 +55,10 @@ export default function Navbar() {
           ></i>
         </div>
         <div className={Styles}>
-          <i
+         <Link to={"/cart"}> <i
             onClick={(e) => console.log(e.target)}
             class="fa-solid fa-cart-arrow-down"
-          ></i>
+          ></i></Link>
         </div>
       </div>
     </nav>

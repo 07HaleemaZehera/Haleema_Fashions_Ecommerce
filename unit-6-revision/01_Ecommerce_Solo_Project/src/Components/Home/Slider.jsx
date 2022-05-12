@@ -25,11 +25,25 @@ const Slider = () => {
       <br />
       <div className={Styles.SliderMen_Image}>
         {/* <div>Men's Ertugrul Collection</div> */}
-        <img  className={Styles.image_slider2} src="https://i.etsystatic.com/10634065/r/il/fd1c34/2183691587/il_fullxfull.2183691587_or9f.jpg" alt="" />
-        <img  className={Styles.image_slider2} src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQCq6nTa49gV5Y0y5-TDqGFNqp5cXq2MPF-vS-YiFnLSe3654Qh6Ero1lpGJjE2AeeapxY&usqp=CAU" alt="" />
-        <img  className={Styles.image_slider2} src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSW5NzjGMlBQVwZqV-vh0m_BsXzVJsLWNDlyQED1pOxB90aheTyQcaqd9IWzACAdOaR31s&usqp=CAU" alt="" />
-         
+        <img
+          className={Styles.image_slider2}
+          src="https://i.etsystatic.com/10634065/r/il/fd1c34/2183691587/il_fullxfull.2183691587_or9f.jpg"
+          alt=""
+        />
+        <img
+          className={Styles.image_slider2}
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQCq6nTa49gV5Y0y5-TDqGFNqp5cXq2MPF-vS-YiFnLSe3654Qh6Ero1lpGJjE2AeeapxY&usqp=CAU"
+          alt=""
+        />
+        <img
+          className={Styles.image_slider2}
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSW5NzjGMlBQVwZqV-vh0m_BsXzVJsLWNDlyQED1pOxB90aheTyQcaqd9IWzACAdOaR31s&usqp=CAU"
+          alt=""
+        />
       </div>
+    {/* <div className={Styles.SliderKids_Image}>
+        // <div cls></div>
+      </div> */}
     </div>
   );
 };
