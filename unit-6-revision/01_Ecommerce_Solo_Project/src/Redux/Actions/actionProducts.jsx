@@ -4,7 +4,9 @@ import {
   FAILURE_JSON_PRODUCT_SHOWN,
   LOADING_JSON_PRODUCT_SHOWN,
   GET_JSON_MEN_DATA,
-  GET_JSON_WOMEN_DATA
+  GET_JSON_WOMEN_DATA,
+  GET_FILTER_PRODUCT,
+  GET_SORTING_PRODUCT
 } from "../ActionTypes/ActionTypes";
 import axios from "axios";
 
@@ -77,4 +79,44 @@ export const getwomen_Json_Data = (Women) => (dispatch) => {
     console.log(error);
   }
 };
+
+
+
+
+export const getFilter_product = (data) => (dispatch) => {
+  dispatch(loadingJson_action_products());
+  try {
+    axios
+      .get(`http://localhost:3000/products?Brand=${data}`)
+      .then((data) => {
+        console.log("data", data);
+        dispatch({ type: GET_FILTER_PRODUCT, payload: data.data }); //senfd to reducer
+        dispatch(successJson_action_products());
+      })
+      .catch(() => {
+        dispatch(failureJson_action_products());
+      });
+  } catch (error) {
+    console.log(error);
+  }
+};
+export const getSorting_product = (value) => (dispatch) => {
+  dispatch(loadingJson_action_products());
+  try {
+    axios
+      .get(`http://localhost:3000/products?_sort=${value}&_order=desc,asc`)
+      .then((data) => {
+        console.log("data", data);
+        dispatch({ type: GET_SORTING_PRODUCT, payload: data.data }); //senfd to reducer
+        dispatch(successJson_action_products());
+      })
+      .catch(() => {
+        dispatch(failureJson_action_products());
+      });
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+
 

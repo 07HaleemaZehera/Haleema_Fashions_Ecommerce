@@ -15,9 +15,10 @@ export default function Navbar() {
           ></img>
         </div>
         <div className={Styles.category}>
+          
           <div className={Styles.men}>
-            <Link to={"all/products"}>
-              <p className={Styles.men}>ALL PRODUCTS</p>
+            <Link to={"/products"}>
+              <p className={Styles.men}>PRODUCTS</p>
             </Link>
           </div>
           <div className={Styles.men}>

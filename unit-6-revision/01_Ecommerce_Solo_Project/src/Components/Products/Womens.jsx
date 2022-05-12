@@ -13,6 +13,10 @@ const Womens = () => {
 
   return (
     <div className={Styles.Product_Container}>
+      <div>
+        <h1>Women's Products</h1>
+      </div>
+
       {products.map((ele) => {
         return (
           <div className={Styles.Product_Child}>
@@ -20,7 +24,7 @@ const Womens = () => {
               <img
                 className={Styles.Product_ImageImg}
                 src={ele.Image_url}
-                alt=""
+                alt="image"
               />
             </div>
             <div className={Styles.Product_Description}>
