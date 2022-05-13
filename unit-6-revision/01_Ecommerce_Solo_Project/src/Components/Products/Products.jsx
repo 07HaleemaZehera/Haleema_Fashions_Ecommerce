@@ -10,6 +10,7 @@ import {
 import Styles from "../../Styles/StylesProduct.module.css";
 import Navbar from "../Navbar/Navbar";
 const Products = () => {
+  const products = useSelector((state) => state.products.products_data);
  
   const handleFilter = (data) => {
     dispatch(getFilter_product(data));
@@ -25,10 +26,9 @@ const Products = () => {
   useEffect(() => {
     dispatch(getJson_action_Products());
   }, []);
-  const products = useSelector((state) => state.products.products_data);
   const handleAddCart=(id)=>{
-    const cartData = products.filter((ele)=> ele.id === id )
-   dispatch(AddtCartData(cartData))
+ 
+   dispatch(AddtCartData(id))
   }
   console.log("products page", products);
   return (

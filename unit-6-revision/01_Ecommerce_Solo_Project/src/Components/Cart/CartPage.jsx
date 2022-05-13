@@ -1,33 +1,39 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import { updatedCarts } from "../../Redux/Actions/actionProducts";
 import Styles from "../../Styles/StylesProduct.module.css";
 export default function CartPage() {
+  const navigate=useNavigate()
   const dispatch = useDispatch();
-  const [items, setItem] = useState(1);
+  // const [items, setItem] = useState(1);
   const cartsData = useSelector((state) => state.products.cart);
   console.log("cartsData", cartsData);
-  useEffect(() => {}, []);
+  // useEffect(() => {
+    // dispatch(updatedCarts());
+
+  // }, [items]);
   const handleQuantityDec = (id) => {
     let index = cartsData.findIndex((ele) => ele.id == id);
 
-    (cartsData[index].Item = cartsData[index].Item - 1);
-    setItem(cartsData[index].Item);
+    cartsData[index].Item = cartsData[index].Item - 1;
+    // setItem(id);
 
-    dispatch(updatedCarts(cartsData));
+    dispatch(updatedCarts());
   };
 
   const handleQuantityInc = (id) => {
     let index = cartsData.findIndex((ele) => ele.id == id);
 
- (cartsData[index].Item = cartsData[index].Item + 1);
-    setItem(cartsData[index].Item);
+    cartsData[index].Item = cartsData[index].Item + 1;
+    // setItem(cartsData[index].Item);
 
-    dispatch(updatedCarts(cartsData));
+    dispatch(updatedCarts());
   };
   return (
     <>
       {/* header for cart   */}
+      
       <div className={Styles.Cart_mainContainerheader}>
         <div className={Styles.Cart_mainContainerheadercild}>
           <div className={Styles.Cart_mainContainerheadeleft}>Price: 0</div>
@@ -57,16 +63,25 @@ export default function CartPage() {
               </div>
               <div className={Styles.Cart_sub_mainContainerthird}>
                 <button onClick={() => handleQuantityDec(e.id)}>-</button>
-                <p>{items}</p>
+                <p>{e.Item}</p>
                 <button onClick={() => handleQuantityInc(e.id)}>+</button>
               </div>
               <div className={Styles.Cart_sub_mainContainerfourth}>
                 <button>Delete</button>
               </div>
             </div>
+            
+
           </div>
+
         );
       })}
-    </>
+      <br></br>
+      <br></br>
+ <div className={Styles.checkout_box_container}>
+
+ <button className={Styles.checkout_btn} onClick={()=>navigate("/checkout")} >CHECKOUT</button>
+
+   </div>    </>
   );
 }

@@ -138,16 +138,16 @@ export const getSorting_product = (value) => (dispatch) => {
 
 
 
-export const AddtCartData = ([cartData]) =>  {
- console.log('cartData', cartData);
+export const AddtCartData = (id) =>  {
+ console.log('cartData', id);
  return {
-   type : "ADD_CART_DATA", payload: cartData
+   type : "ADD_CART_DATA", payload: id
  }
 };
 
-export const updatedCarts = (cartData) =>  {
- console.log('cartData', cartData);
+export const updatedCarts = () =>  {
+
  return {
-   type : "UP_CART_DATA", payload: cartData
+   type : "UP_CART_DATA", 
  }
 };
