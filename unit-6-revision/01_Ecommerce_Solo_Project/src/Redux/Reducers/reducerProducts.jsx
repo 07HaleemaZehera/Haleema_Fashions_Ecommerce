@@ -8,6 +8,9 @@ import {
   GET_FILTER_PRODUCT,
   GET_SORTING_PRODUCT,
   PARTICULAR_DATA,
+  ADD_CHECKOUT_ADDRESS,
+  ADD_PAYMENT_DETAILS,
+  ADD_HANDLE_BUY
 } from "../ActionTypes/ActionTypes";
 const initState = {
   products_data: [],
@@ -15,6 +18,9 @@ const initState = {
   loading: true,
   failure: false,
   cart: [],
+  checkout: "",
+  payment:"",
+  buyNow:{}
 };
 export const getJson_reducer_Products = (
   state = initState,
@@ -41,19 +47,23 @@ export const getJson_reducer_Products = (
     case PARTICULAR_DATA:
       return { ...state, products_data: payload };
     case "ADD_CART_DATA":
-        const cartData = state.products_data.filter((ele)=> ele.id === payload ) ///propducts arr check 
+      const cartData = state.products_data.filter((ele) => ele.id === payload); ///propducts arr check
 
       const compareData = state.cart.filter((ele) => ele.id === payload);
-      console.log('payload', payload);
+      console.log("payload", payload);
       if (compareData.length != 0) {
         return { ...state };
-
-      }
-      else {
-        return { ...state, cart: [...state.cart, cartData[0]] };
+      } else {
+        return { ...state, cart: [...state.cart, cartData[0]]};
       }
     case "UP_CART_DATA":
       return { ...state, cart: [...state.cart] };
+    case ADD_CHECKOUT_ADDRESS:
+      return { ...state, checkout: payload };
+    case ADD_PAYMENT_DETAILS:
+      return { ...state, payment:payload};
+    case ADD_HANDLE_BUY:
+      return { ...state, buyNow:payload};
     default:
       return state;
   }

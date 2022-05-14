@@ -1,8 +1,8 @@
 import axios from "axios";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
-import { particularData } from "../../Redux/Actions/actionProducts";
+import { Link, useParams } from "react-router-dom";
+import { AddHandleBuy, particularData } from "../../Redux/Actions/actionProducts";
 import Styles from "../../Styles/StylesProduct.module.css";
 import Navbar from "../Navbar/Navbar";
 
@@ -12,6 +12,10 @@ export default function ProductDetails() {
   console.log('particularDatas', particularDatas);
   const dispatch = useDispatch()
   const { id } = useParams();
+  const handleBuy=()=>{
+    dispatch(AddHandleBuy(particularDatas)) 
+
+  }
   useEffect(() => {
     axios.get(`http://localhost:3000/products?id=${id}`).then((data) => {
       dispatch(particularData(data));
@@ -46,7 +50,7 @@ export default function ProductDetails() {
               </select>
             </div>
             <div className={Styles.Detail_Cart}>
-              <button>Buy</button>
+              <button onClick={handleBuy}  ><Link to="/checkout">Buy Now</Link></button>
             </div>
           </div>
         </div>
@@ -55,3 +59,5 @@ export default function ProductDetails() {
    </>
   );
 }
+// getproduct uske cheexon ko 
+// 

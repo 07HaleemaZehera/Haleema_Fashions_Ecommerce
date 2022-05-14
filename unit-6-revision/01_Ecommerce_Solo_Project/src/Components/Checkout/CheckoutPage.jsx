@@ -16,11 +16,40 @@ import TextField from "@mui/material/TextField";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
 import Styles from "../../Styles/StylesProduct.module.css";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { AddCheckoutAddress } from "../../Redux/Actions/actionProducts";
 
 export default function CheckoutPage() {
+  
+  const dispatch=useDispatch()
+
+const [payload,setPayload]=React.useState({
+  firstName:"",
+  lastName:"",
+  address1:"",
+  address2:"",
+  city:"",
+  state:"",
+  zip:"",
+  country:""
+
+})
   const cartGetData = useSelector((state) => state.products.cart);
   console.log("cartGetData", cartGetData);
+  const checkoutInput=(e)=>{
+    let {name,value}=e.target 
+    setPayload({...payload,[name]:value})
+  
+
+    
+
+  }
+  console.log('payload', payload);
+  let data=payload
+  dispatch(AddCheckoutAddress(data))
+
+
+
   return (
     <React.Fragment>
       <div className={Styles.Checkout_Container}>
@@ -37,7 +66,8 @@ export default function CheckoutPage() {
                 label="First name"
                 fullWidth
                 autoComplete="given-name"
-                variant="standard"
+                variant="standard" 
+                onChange={checkoutInput}
               />
             </Grid>
             <Grid item xs={12} sm={6}>
@@ -49,6 +79,8 @@ export default function CheckoutPage() {
                 fullWidth
                 autoComplete="family-name"
                 variant="standard"
+                onChange={checkoutInput}
+
               />
             </Grid>
             <Grid item xs={12}>
@@ -60,6 +92,8 @@ export default function CheckoutPage() {
                 fullWidth
                 autoComplete="shipping address-line1"
                 variant="standard"
+                onChange={checkoutInput}
+
               />
             </Grid>
             <Grid item xs={12}>
@@ -70,6 +104,8 @@ export default function CheckoutPage() {
                 fullWidth
                 autoComplete="shipping address-line2"
                 variant="standard"
+                onChange={checkoutInput}
+
               />
             </Grid>
             <Grid item xs={12} sm={6}>
@@ -81,6 +117,8 @@ export default function CheckoutPage() {
                 fullWidth
                 autoComplete="shipping address-level2"
                 variant="standard"
+                onChange={checkoutInput}
+
               />
             </Grid>
             <Grid item xs={12} sm={6}>
@@ -90,6 +128,8 @@ export default function CheckoutPage() {
                 label="State/Province/Region"
                 fullWidth
                 variant="standard"
+                onChange={checkoutInput}
+
               />
             </Grid>
             <Grid item xs={12} sm={6}>
@@ -101,6 +141,8 @@ export default function CheckoutPage() {
                 fullWidth
                 autoComplete="shipping postal-code"
                 variant="standard"
+                onChange={checkoutInput}
+
               />
             </Grid>
             <Grid item xs={12} sm={6}>
@@ -112,19 +154,27 @@ export default function CheckoutPage() {
                 fullWidth
                 autoComplete="shipping country"
                 variant="standard"
+                onChange={checkoutInput}
+
               />
             </Grid>
             <Grid item xs={12}>
               <FormControlLabel
                 control={
-                  <Checkbox color="secondary" name="saveAddress" value="yes" />
+                  <Checkbox color="secondary" name="saveAddress" value="yes"
+                   />
                 }
                 label="Use this address for payment details"
               />
             </Grid>
+
           </Grid>
         </div>
       </div>
     </React.Fragment>
   );
 }
+
+
+// step 1---checkoutForm-- input data--[store(redux)-]- shown (page 3) 
+// step2---paymebnt details---data redux--shown page(3)

@@ -7,7 +7,10 @@ import {
   GET_JSON_WOMEN_DATA,
   GET_FILTER_PRODUCT,
   GET_SORTING_PRODUCT,
-  PARTICULAR_DATA
+  PARTICULAR_DATA,
+  ADD_CHECKOUT_ADDRESS,
+  ADD_PAYMENT_DETAILS,
+  ADD_HANDLE_BUY
 } from "../ActionTypes/ActionTypes";
 import axios from "axios";
 
@@ -151,3 +154,29 @@ export const updatedCarts = () =>  {
    type : "UP_CART_DATA", 
  }
 };
+export const AddCheckoutAddress = (data) =>  {
+console.log('data', data);
+
+ return {
+   type : ADD_CHECKOUT_ADDRESS, 
+   payload:data
+ }
+};
+export const AddpaymentDetails = (data) =>  {
+console.log('data', data);
+
+ return {
+   type : ADD_PAYMENT_DETAILS, 
+   payload:data
+ }
+};
+export const AddHandleBuy = (data) =>  {
+console.log('data', data);
+
+ return {
+   type : ADD_HANDLE_BUY, 
+   payload:data
+ }
+};
+
+

@@ -1,11 +1,34 @@
-import * as React from 'react';
-import Typography from '@mui/material/Typography';
-import Grid from '@mui/material/Grid';
-import TextField from '@mui/material/TextField';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import Checkbox from '@mui/material/Checkbox';
+import * as React from "react";
+import Typography from "@mui/material/Typography";
+import Grid from "@mui/material/Grid";
+import TextField from "@mui/material/TextField";
+import FormControlLabel from "@mui/material/FormControlLabel";
+import Checkbox from "@mui/material/Checkbox";
+import { useDispatch, useSelector } from "react-redux";
+import { AddpaymentDetails } from "../../Redux/Actions/actionProducts";
 
 export default function PaymentForm() {
+  // const CheckoutData=useSelector((state)=>state.products.checkout)
+  // console.log('CheckoutData', CheckoutData);
+  const dispatch=useDispatch()
+  const [payload, setPayload] = React.useState({
+    cardName: "",
+    cardNumber: "",
+    expDate: "",
+    cvv: "",
+    saveCard: "",
+  });
+  const PaymentInput=(e)=>{
+    let {id,value}=e.target 
+    setPayload({...payload,[id]:value})
+  
+
+    
+
+  }
+  console.log('payload', payload);
+  let data=payload
+  dispatch(AddpaymentDetails(data))
   return (
     <React.Fragment>
       <Typography variant="h6" gutterBottom>
@@ -20,6 +43,7 @@ export default function PaymentForm() {
             fullWidth
             autoComplete="cc-name"
             variant="standard"
+            onChange={PaymentInput}
           />
         </Grid>
         <Grid item xs={12} md={6}>
@@ -30,6 +54,7 @@ export default function PaymentForm() {
             fullWidth
             autoComplete="cc-number"
             variant="standard"
+            onChange={PaymentInput}
           />
         </Grid>
         <Grid item xs={12} md={6}>
@@ -40,6 +65,7 @@ export default function PaymentForm() {
             fullWidth
             autoComplete="cc-exp"
             variant="standard"
+            onChange={PaymentInput}
           />
         </Grid>
         <Grid item xs={12} md={6}>
@@ -51,12 +77,14 @@ export default function PaymentForm() {
             fullWidth
             autoComplete="cc-csc"
             variant="standard"
+            onChange={PaymentInput}
           />
         </Grid>
         <Grid item xs={12}>
           <FormControlLabel
-            control={<Checkbox color="secondary" name="saveCard" value="yes" />}
+            control={<Checkbox color="secondary" id="saveCard" value="yes" />}
             label="Remember credit card details for next time"
+            onChange={PaymentInput}
           />
         </Grid>
       </Grid>
