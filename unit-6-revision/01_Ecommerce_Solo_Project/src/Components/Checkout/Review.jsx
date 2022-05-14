@@ -9,12 +9,21 @@ import { useSelector } from 'react-redux';
 const payments=[]
 
 const addresses = [];
+let buyCart=[];
 
 
 export default function Review() {
+
   const CheckoutData=useSelector((state)=>state.products.checkout)
   const PaymentData=useSelector((state)=>state.products.payment)
   const CartData=useSelector((state)=>state.products.cart)
+  const BuyNowData=useSelector((state)=>state.products.buyNow)
+  console.log('BuyNowData', BuyNowData);
+  if(BuyNowData.length=={}){
+    buyCart.push(CartData)
+  }else{
+    buyCart.push(BuyNowData)
+  }
   console.log('CheckoutData', CheckoutData);
   console.log('PaymentData', PaymentData);
   console.log('CartData', CartData);
