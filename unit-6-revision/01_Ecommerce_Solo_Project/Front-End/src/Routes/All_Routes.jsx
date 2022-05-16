@@ -12,11 +12,13 @@ import CheckoutPage from "../Components/Checkout/CheckoutPage";
 import PaymentForm from "../Components/Checkout/PaymentForm";
 import Review from "../Components/Checkout/Review";
 import AdressForm from "../Components/Checkout/AdressForm";
+import RegisterLogin from "../Components/Login/RegisterLogin";
 
 const All_Routes = () => {
   return (
     <div>
       <Routes>
+        <Route path="/registerlogin" element={<RegisterLogin />}></Route>
         <Route path="/" element={<HomePage />}></Route>
         <Route path="/*" element={<Not_Found />}></Route>
         <Route path="/product/men" element={<Mens />}></Route>

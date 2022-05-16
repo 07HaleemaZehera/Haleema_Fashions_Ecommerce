@@ -58,6 +58,14 @@ export const getJson_reducer_Products = (
       }
     case "UP_CART_DATA":
       return { ...state, cart: [...state.cart] };
+    case "DELETE_THE_CART_DATA":
+      const updatedData = state.cart.filter((ele)=> ele.id != payload)
+      console.log('payload', payload);
+
+
+      
+      console.log('updatedData', updatedData);
+      return { ...state, cart: updatedData };
     case ADD_CHECKOUT_ADDRESS:
       return { ...state, checkout: payload };
     case ADD_PAYMENT_DETAILS:
@@ -68,3 +76,5 @@ export const getJson_reducer_Products = (
       return state;
   }
 };
+
+

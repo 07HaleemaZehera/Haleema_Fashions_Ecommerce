@@ -75,10 +75,10 @@ const Products = () => {
                   />
                 </div>
                 <div className={Styles.Product_Description}>
-                  <p>Brand : {ele.Brand}</p>
-                  <p>Price : {ele.Price}</p>
-                  <p>Rating : {ele.Rating}</p>
-                  <p>Size : {ele.Size}</p>
+                  <p>Brand : {ele.name}</p>
+                  <p>Price : {ele.price}</p>
+                  <p>Rating : {ele.brand}</p>
+                  <p>Size : {ele.color}</p>
                   
                 </div>
                </Link>

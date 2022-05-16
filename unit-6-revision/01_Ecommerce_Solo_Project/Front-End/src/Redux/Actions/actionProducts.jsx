@@ -18,7 +18,7 @@ export const getJson_action_Products = () => (dispatch) => {
   dispatch(loadingJson_action_products());
   try {
     axios
-      .get("http://localhost:3000/products")
+      .get("http://localhost:5000/products")
       .then((data) => {
         console.log("data", data);
         dispatch({ type: GET_JSON_PRODUCT_DATA, payload: data.data }); //senfd to reducer
@@ -95,7 +95,7 @@ export const getFilter_product = (data) => (dispatch) => {
   dispatch(loadingJson_action_products());
   try {
     axios
-      .get(`http://localhost:3000/products?Brand=${data}`)
+      .get(`http://localhost:3000/products?brand=${data}`)
       .then((data) => {
         console.log("data", data);
         dispatch({ type: GET_FILTER_PRODUCT, payload: data.data }); //senfd to reducer
@@ -152,6 +152,12 @@ export const updatedCarts = () =>  {
 
  return {
    type : "UP_CART_DATA", 
+ }
+};
+export const DeleteTheData = (id) =>  {
+
+ return {
+   type : "DELETE_THE_CART_DATA", payload:id
  }
 };
 export const AddCheckoutAddress = (data) =>  {

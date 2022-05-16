@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { updatedCarts } from "../../Redux/Actions/actionProducts";
+import { DeleteTheData, updatedCarts } from "../../Redux/Actions/actionProducts";
 import Styles from "../../Styles/StylesProduct.module.css";
 export default function CartPage() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  // const [items, setItem] = useState(1);
+  const [items, setItems] = useState(0);
+  console.log('items', items);
+  let itemPrice=0;
   let All_Price = 0;
   const cartsData = useSelector((state) => state.products.cart);
   console.log("cartsData", cartsData);
@@ -25,20 +27,31 @@ export default function CartPage() {
   };
 
   const handleQuantityInc = (id) => {
+
+
     let index = cartsData.findIndex((ele) => ele.id == id);
 
     cartsData[index].Item = cartsData[index].Item + 1;
+    
+    let indexCartdata=cartsData[index].Price* cartsData[index].Item;
     // setItem(cartsData[index].Item);
+    itemPrice=indexCartdata;
+    console.log('itemPrice', itemPrice);
+    All_Price=All_Price+ itemPrice
+    setItems(items+itemPrice)
 
     dispatch(updatedCarts());
   };
+  const handleDelete=(id)=>{
+    dispatch(DeleteTheData(id))
+  }
   return (
     <>
       {/* header for cart   */}
       <div className={Styles.Cart_mainContainerheader}>
         <div className={Styles.Cart_mainContainerheadercild}>
           <div className={Styles.Cart_mainContainerheadeleft}>
-            Price:{All_Price}
+            Price:{All_Price + itemPrice}
           </div>
           <div className={Styles.Cart_mainContainerheadeleft}>
             cart : {cartsData.length}
@@ -69,7 +82,7 @@ export default function CartPage() {
                 <button onClick={() => handleQuantityInc(e.id)}>+</button>
               </div>
               <div className={Styles.Cart_sub_mainContainerfourth}>
-                <button>Delete</button>
+                <button onClick={()=>handleDelete(e.id)}>Delete</button>
               </div>
             </div>
           </div>
