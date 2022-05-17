@@ -34,7 +34,7 @@ const Products = () => {
     <>
       <div className={Styles.welcome}>
         <h2>
-          <marquee direction="left"> Welcome to HAleema Fashions</marquee>
+          <marquee direction="left"> Welcome to Haleema Fashions </marquee>
         </h2>
       </div>
       <br />

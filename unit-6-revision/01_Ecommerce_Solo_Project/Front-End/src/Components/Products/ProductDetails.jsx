@@ -6,6 +6,7 @@ import {
   AddHandleBuy,
   particularData,
 } from "../../Redux/Actions/actionProducts";
+import { loginToken } from "../../Redux/Actions/LoginAction";
 import Styles from "../../Styles/StylesProduct.module.css";
 import Navbar from "../Navbar/Navbar";
 
@@ -14,6 +15,12 @@ export default function ProductDetails() {
   // const PrivateRouteBuy = ({ isAuth, children }) => {
   //  return isAuth==true ? children : alert("User not logged in");
   // };
+  // const token_Login=useSelector((state)=>state.tokenLogin.token)
+  useEffect(()=>{
+    const allTokenData=JSON.parse(localStorage.getItem("token"));
+    dispatch(loginToken(allTokenData));
+  },[])
+
   const [particularDatas] = useSelector(
     (state) => state.products.products_data
   );
