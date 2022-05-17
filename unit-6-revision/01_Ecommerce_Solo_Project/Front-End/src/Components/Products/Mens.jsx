@@ -22,7 +22,7 @@ const Mens = () => {
 <Navbar/>
 </div>
     <div className={Styles.Product_Container}>
-      <div><h1>Men's Products</h1></div>
+      <div><h1></h1></div>
       {products.map((ele) => {
         return (
           <div className={Styles.Product_Child}>

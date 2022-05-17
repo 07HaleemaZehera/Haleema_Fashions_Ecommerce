@@ -9,15 +9,20 @@ import Slider from './Slider'
 export default function HomePage() {
   return (
     <div className={Styles.HomeBigContainer}>
+       <div className={Styles.welcome}>
+        <h2>
+          <marquee direction="left"> Welcome to Haleema Fashions</marquee>
+        </h2>
+      </div>
 <div className={Styles.Navbar}>
 <Navbar />
 </div>
 <div className={Styles.Slider}>
   <Slider></Slider>
 </div><br></br>
-<div className={Styles.Slider}>
+{/* <div className={Styles.Slider}>
   <MenSlide/>
-</div>
+</div> */}
 <div className={Styles.Features}>
 <Features />
 </div>
