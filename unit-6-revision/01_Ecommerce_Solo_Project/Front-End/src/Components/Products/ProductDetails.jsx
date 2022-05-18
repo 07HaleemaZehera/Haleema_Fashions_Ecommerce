@@ -21,7 +21,7 @@ export default function ProductDetails() {
     dispatch(loginToken(allTokenData));
   },[])
 
-  const [particularDatas] = useSelector(
+  const particularDatas = useSelector(
     (state) => state.products.products_data
   );
   console.log("particularDatas", particularDatas);
@@ -31,7 +31,8 @@ export default function ProductDetails() {
     dispatch(AddHandleBuy(particularDatas));
   };
   useEffect(() => {
-    axios.get(`http://localhost:3000/products?id=${id}`).then((data) => {
+    axios.get(`http://localhost:5000/kids/${id}`).then((data) => {
+      console.log('data', data);
       dispatch(particularData(data));
     });
   }, [id]);
@@ -54,25 +55,25 @@ export default function ProductDetails() {
                 />
               </div>
               <div className={Styles.Detail_Title}>
-                <b>Brand:</b> {particularDatas.Brand}
+                <b>Brand:</b> {particularDatas.brand}
               </div>
               <div className={Styles.Detail_Size}>
                 <b>Size:</b>
-                {particularDatas.Size}
+                {particularDatas.price}
               </div>
               <div className={Styles.Detail_Description}>
                 <b>Description:</b>
-                {particularDatas.Description}
+                {particularDatas.category}
               </div>
             </div>
             <div className={Styles.Detail_RightContainer}>
               <div className={Styles.Detail_RightDescription}>
                 <b>Description</b>
-                {particularDatas.Description}
+                {particularDatas.category}
               </div>
               <div className={Styles.Detail_RightPrice}>
                 <b>Price</b>
-                {particularDatas.Price}
+                {particularDatas.price}
               </div>
               <div className={Styles.Detail_RightSize}>
                 <select onChange={() => "handleSize"}>

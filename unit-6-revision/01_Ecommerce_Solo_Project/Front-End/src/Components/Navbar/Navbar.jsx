@@ -33,7 +33,11 @@ export default function Navbar() {
               <p className={Styles.men}>Women</p>
             </Link>
           </div>
-          <div className={Styles.baby}>Kids</div>
+          <div className={Styles.men}>
+            <Link to={"/kid"}>
+              <p className={Styles.men}>Kids</p>
+            </Link>
+          </div>
           {/* <div className={Styles.accessories}>PERFUMES</div> */}
         </div>
       </div>

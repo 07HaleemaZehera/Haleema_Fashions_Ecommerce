@@ -2,32 +2,32 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   AddtCartData,
-  getFilter_product,
+  getFilter_product_Men,
   getMen_Json_Data,
-  getSorting_product,
+  getMen_Sorting_product,
 } from "../../Redux/Actions/actionProducts";
 import Styles from "../../Styles/StylesProduct.module.css";
 import Navbar from "../Navbar/Navbar";
 
 const Mens = () => {
   const dispatch = useDispatch();
-  const mens = useSelector((state) => state.products.products_data);
+  const mens = useSelector((state) => state.products.men_data);
 
   const handleFilter = (data) => {
-    dispatch(getFilter_product(data));
+    dispatch(getFilter_product_Men(data));
     console.log("data", data);
   };
 
   const handleSorting = (e) => {
     let value = e.target.value;
     console.log(value);
-    dispatch(getSorting_product(value));
+    dispatch(getMen_Sorting_product(value));
   };
 
   useEffect(() => {
     dispatch(getMen_Json_Data("Men"));
   }, []);
-  const products = useSelector((state) => state.products.products_data);
+  const products = useSelector((state) => state.products.men_data);
   console.log("products page", products);
   const handleAddCart = (id) => {
     console.log("id", id);
@@ -49,7 +49,9 @@ const Mens = () => {
               <button onClick={() => handleFilter("shirts")}>Shirts</button>
             </div>
             <div>
-              <button onClick={() => handleFilter("Loungewear")}>Loungewear</button>
+              <button onClick={() => handleFilter("Loungewear")}>
+                Loungewear
+              </button>
             </div>
           </div>
         </div>

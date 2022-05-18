@@ -67,4 +67,37 @@ router.post("/", async(req,res)=>
     }
  })
 
+
+
+
+  router.get("/sortasc",async(req,res)=>{
+    console.log(req.query)
+    // req. query. color2 === 'blue'
+    try {
+        const mens= await Mens.find().sort({price:1}).lean().exec();
+      return  res.status(201).send(mens)
+
+    } catch (error) {
+        return res.status(500).send({error:error.message})
+    }
+ })
+ 
+   
+
+  router.get("/sortdesc",async(req,res)=>{
+    console.log(req.query)
+    // req. query. color2 === 'blue'
+    try {
+        const mens= await Mens.find().sort({price:-1}).lean().exec();
+      return  res.status(201).send(mens)
+
+    } catch (error) {
+        return res.status(500).send({error:error.message})
+    }
+ })
+
+
+
+
+
 module.exports = router

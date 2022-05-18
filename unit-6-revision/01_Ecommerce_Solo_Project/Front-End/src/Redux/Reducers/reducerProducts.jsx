@@ -5,8 +5,7 @@ import {
   LOADING_JSON_PRODUCT_SHOWN,
   GET_JSON_MEN_DATA,
   GET_JSON_WOMEN_DATA,
-  GET_FILTER_PRODUCT,
-  GET_SORTING_PRODUCT,
+
   PARTICULAR_DATA,
   ADD_CHECKOUT_ADDRESS,
   ADD_PAYMENT_DETAILS,
@@ -14,6 +13,9 @@ import {
 } from "../ActionTypes/ActionTypes";
 const initState = {
   products_data: [],
+  men_data: [],
+ women_data: [],
+  kid_data: [],
   success: false,
   loading: true,
   failure: false,
@@ -37,13 +39,23 @@ export const getJson_reducer_Products = (
     case LOADING_JSON_PRODUCT_SHOWN:
       return { ...state, loading: false };
     case GET_JSON_MEN_DATA:
-      return { ...state, products_data: payload };
+      return { ...state, men_data: payload };
     case GET_JSON_WOMEN_DATA:
-      return { ...state, products_data: payload };
-    case GET_FILTER_PRODUCT:
-      return { ...state, products_data: payload };
-    case GET_SORTING_PRODUCT:
-      return { ...state, products_data: payload };
+      return { ...state,women_data: payload };
+    case "GET_JSON_KID_DATA":
+      return { ...state,kid_data: payload };
+    case "GET_MEN_FILTER_PRODUCT":
+      return { ...state, men_data: payload };
+    case "GET_WOMEN_FILTER_PRODUCT":
+      return { ...state, women_data: payload };
+    case "GET_KID_FILTER_PRODUCT":
+      return { ...state, kid_data: payload };
+    case "GET_MEN_SORTING_PRODUCT":
+      return { ...state, men_data: payload };
+    case "GET_WOMEN_SORTING_PRODUCT":
+      return { ...state, women_data: payload };
+    case "GET_KID_SORTING_PRODUCT":
+      return { ...state, kid_data: payload };
     case PARTICULAR_DATA:
       return { ...state, products_data: payload };
     case "ADD_CART_DATA":

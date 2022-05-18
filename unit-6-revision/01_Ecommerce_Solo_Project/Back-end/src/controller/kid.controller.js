@@ -32,14 +32,60 @@ router.post("/", async(req,res)=>
 //   })
 
 
-  router.get("",async(req,res)=>{
-    
+router.get("", async (req, res) => {
     try {
-        const kids= await Kids.find().lean().exec();
-      return  res.status(201).send(kids)
+      if (req.query.category == undefined) {
+        const kids = await Kids.find().lean().exec();
+        return res.status(201).send(kids);
+      } else {
+        const kids = await Kids.find({ category: req.query.category })
+          .lean()
+          .exec();
+        return res.status(201).send(kids);
+      }
     } catch (error) {
-        return res.status(500).send({error:error.message})
+      return res.status(500).send({ error: error.message });
     }
- })
+  });
+
+
+
+
+  router.get("/sortasc", async (req, res) => {
+    console.log(req.query);
+    // req. query. color2 === 'blue'
+    try {
+      const kids = await Kids.find().sort({ price: 1 }).lean().exec();
+      return res.status(201).send(kids);
+    } catch (error) {
+      return res.status(500).send({ error: error.message });
+    }
+  });
+  
+  router.get("/sortdesc", async (req, res) => {
+    console.log(req.query);
+    // req. query. color2 === 'blue'
+    try {
+      const kids = await Kids.find().sort({ price: -1 }).lean().exec();
+      return res.status(201).send(kids);
+    } catch (error) {
+      return res.status(500).send({ error: error.message });
+    }
+  });
+  
+
+
+
+  router.get("/:id", async (req, res) => {
+    console.log("aa",req.params.id);
+    // req. query. color2 === 'blue'
+    try {
+      const kids = await Kids.findById({_id:req.params.id}).lean().exec();
+      return res.status(201).send(kids);
+    } catch (error) {
+      return res.status(500).send({ error: error.message });
+    }
+  });
+
 
 module.exports = router
