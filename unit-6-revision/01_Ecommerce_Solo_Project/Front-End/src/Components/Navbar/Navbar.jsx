@@ -17,24 +17,24 @@ export default function Navbar() {
           ></img>
         </div>
         <div className={Styles.category}>
-          <div className={Styles.men}>
+          {/* <div className={Styles.men}>
             <Link to={"/products"}>
-              <p className={Styles.men}>PRODUCTS</p>
+              <p className={Styles.men}> All Products</p>
             </Link>
-          </div>
+          </div> */}
           <div className={Styles.men}>
             <Link to={"/product/men"}>
-              <p className={Styles.men}>MEN</p>
+              <p className={Styles.men}>Men</p>
             </Link>
           </div>
 
-          <div className={Styles.women}>
+          <div className={Styles.men}>
             <Link to={"/product/women"}>
-              <p className={Styles.men}>WOMEN</p>
+              <p className={Styles.men}>Women</p>
             </Link>
           </div>
-          <div className={Styles.baby}>BABY</div>
-          <div className={Styles.accessories}>PERFUMES</div>
+          <div className={Styles.baby}>Kids</div>
+          {/* <div className={Styles.accessories}>PERFUMES</div> */}
         </div>
       </div>
       <div className={Styles.RightNavBar}>
@@ -49,8 +49,8 @@ export default function Navbar() {
         <div>
           <input type="Submit" className={Styles.InputsBtn} />
         </div>
-        <div className={Styles}>
-          <Link to="/registerlogin">
+        <div className={Styles.register_Icon}>
+          <Link className={Styles.register_Icon} to="/registerlogin">
             {" "}
             <i
               onClick={(e) => console.log(e.target)}
@@ -58,8 +58,10 @@ export default function Navbar() {
             ></i>
           </Link>
         </div>
-        <div className={Styles}>
-          <Link to={"/cart"}>
+
+        
+        <div className={Styles.cart_Icon}>
+          <Link className={Styles.cart_Icon} to={"/cart"}>
             {" "}
             <i
               onClick={(e) => console.log(e.target)}

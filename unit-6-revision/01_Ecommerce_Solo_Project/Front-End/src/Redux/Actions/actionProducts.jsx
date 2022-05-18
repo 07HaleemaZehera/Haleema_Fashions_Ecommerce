@@ -52,7 +52,7 @@ export const getMen_Json_Data = (Men) => (dispatch) => {
   dispatch(loadingJson_action_products());
   try {
     axios
-      .get(`http://localhost:3000/products?Category=${Men}`)
+      .get(`http://localhost:5000/mens`)
       .then((data) => {
         console.log("data", data);
         dispatch({ type: GET_JSON_MEN_DATA, payload: data.data }); //senfd to reducer
@@ -95,7 +95,7 @@ export const getFilter_product = (data) => (dispatch) => {
   dispatch(loadingJson_action_products());
   try {
     axios
-      .get(`http://localhost:3000/products?brand=${data}`)
+      .get(`http://localhost:5000/mens?category=${data}`)
       .then((data) => {
         console.log("data", data);
         dispatch({ type: GET_FILTER_PRODUCT, payload: data.data }); //senfd to reducer

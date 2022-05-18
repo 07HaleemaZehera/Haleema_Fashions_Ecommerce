@@ -43,17 +43,16 @@ const Products = () => {
         <Navbar />
       </div>
       <br />
-      <br />
       <div className={Styles.filter_div}>
         <div className={Styles.filter_div_left}>
           <div>Filter By Brand</div>
           <div className={Styles.filter_div_left_brand}>
             <div>
-              <button onClick={() => handleFilter("Halime")}>Halime</button>
+              <button onClick={() => handleFilter("Nike")}>Nike</button>
             </div>
             <div>
-              <button onClick={() => handleFilter("Allen Solley")}>
-                Allen Solley
+              <button onClick={() => handleFilter("Topman")}>
+                TopMan
               </button>
             </div>
           </div>
@@ -73,7 +72,8 @@ const Products = () => {
         {products.map((ele) => {
           return (
             <>
-              <div className={Styles.Product_Child}>
+              <div className={Styles.Product_Child}>   
+              {/* //card */}
                 <Link to={`/details/${ele.id}`} className={Styles.decoration}>
                   <div className={Styles.Product_Image}> 
                    {/* //Image_url */}

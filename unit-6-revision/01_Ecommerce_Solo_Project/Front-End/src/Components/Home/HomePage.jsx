@@ -20,9 +20,9 @@ export default function HomePage() {
 <div className={Styles.Slider}>
   <Slider></Slider>
 </div><br></br>
-{/* <div className={Styles.Slider}>
+<div className={Styles.Slider}>
   <MenSlide/>
-</div> */}
+</div>
 <div className={Styles.Features}>
 <Features />
 </div>

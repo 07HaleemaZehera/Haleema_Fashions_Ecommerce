@@ -17,15 +17,7 @@ const Slider = () => {
 
     </div>
          <br />
-         {/* <div className={Styles.sub_container}>
-           <div className={Styles.sub_containers1}>
-             <div className={Styles.homepage_category}>hello</div>
-             <div className={Styles.homepage_category}>hello</div>
-             <div className={Styles.homepage_category}>hello</div>
-             <div className={Styles.homepage_category}>hello</div>
-            
-           </div>
-         </div> */}  
+      {/*  */}
    </>
   );
 };

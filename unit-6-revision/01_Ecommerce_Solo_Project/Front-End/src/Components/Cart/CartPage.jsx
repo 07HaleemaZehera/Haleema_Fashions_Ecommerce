@@ -14,11 +14,11 @@ export default function CartPage() {
   console.log("cartsData", cartsData);
   {
     cartsData.map((e) => {
-      All_Price = All_Price + +e.Price;
+      All_Price = All_Price + +e.price;
     });
   }
   const handleQuantityDec = (id) => {
-    let index = cartsData.findIndex((ele) => ele.id == id);
+    let index = cartsData.findIndex((ele) => ele._id == id);
 
     cartsData[index].Item = cartsData[index].Item - 1;
     // setItem(id);
@@ -29,14 +29,14 @@ export default function CartPage() {
   const handleQuantityInc = (id) => {
 
 
-    let index = cartsData.findIndex((ele) => ele.id == id);
+    let index = cartsData.findIndex((ele) => ele._id == id);
 
     cartsData[index].Item = cartsData[index].Item + 1;
     
-    let indexCartdata=cartsData[index].Price* cartsData[index].Item;
+    let indexCartdata=cartsData[index].price*cartsData[index].Item;
     // setItem(cartsData[index].Item);
     itemPrice=indexCartdata;
-    console.log('itemPrice', itemPrice);
+    console.log('itemPrice', itemPrice);    
     All_Price=All_Price+ itemPrice
     setItems(items+itemPrice)
 
@@ -54,7 +54,7 @@ export default function CartPage() {
             Price:{All_Price + itemPrice}
           </div>
           <div className={Styles.Cart_mainContainerheadeleft}>
-            cart : {cartsData.length}
+            Cart : {cartsData.length}
           </div>
         </div>
       </div>
@@ -62,27 +62,28 @@ export default function CartPage() {
       <br />
       {/* map data */}
       {cartsData.map((e) => {
+        console.log("data",e.Item)
         return (
           <div className={Styles.Cart_mainContainer}>
             <div className={Styles.Cart_sub_mainContainer}>
               <div className={Styles.Cart_sub_mainContainerfirst}>
                 <img
                   className={Styles.Cart_sub_mainContainerfirstImage}
-                  src={e.Image_url}
+                  src={e.image_url}
                   alt=""
                 />
               </div>
               <div className={Styles.Cart_sub_mainContainersecond}>
-                <span>{e.Brand}</span>
-                <span>{e.Size}</span>
+                <span>{e.brand}</span>
+                <span>{e.name}</span>
               </div>
               <div className={Styles.Cart_sub_mainContainerthird}>
-                <button onClick={() => handleQuantityDec(e.id)}>-</button>
+                <button onClick={() => handleQuantityDec(e._id)}>-</button>
                 <p>{e.Item}</p>
-                <button onClick={() => handleQuantityInc(e.id)}>+</button>
+                <button onClick={() => handleQuantityInc(e._id)}>+</button>
               </div>
               <div className={Styles.Cart_sub_mainContainerfourth}>
-                <button onClick={()=>handleDelete(e.id)}>Delete</button>
+                <button onClick={()=>handleDelete(e._id)}>Delete</button>
               </div>
             </div>
           </div>

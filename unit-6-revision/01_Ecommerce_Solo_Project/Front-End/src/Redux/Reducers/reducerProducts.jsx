@@ -47,9 +47,9 @@ export const getJson_reducer_Products = (
     case PARTICULAR_DATA:
       return { ...state, products_data: payload };
     case "ADD_CART_DATA":
-      const cartData = state.products_data.filter((ele) => ele.id === payload); ///propducts arr check
+      const cartData = state.products_data.filter((ele) => ele._id === payload); ///propducts arr check
 
-      const compareData = state.cart.filter((ele) => ele.id === payload);
+      const compareData = state.cart.filter((ele) => ele._id === payload);
       console.log("payload", payload);
       if (compareData.length != 0) {
         return { ...state };
@@ -59,7 +59,7 @@ export const getJson_reducer_Products = (
     case "UP_CART_DATA":
       return { ...state, cart: [...state.cart] };
     case "DELETE_THE_CART_DATA":
-      const updatedData = state.cart.filter((ele)=> ele.id != payload)
+      const updatedData = state.cart.filter((ele)=> ele._id != payload)
       console.log('payload', payload);
 
 
