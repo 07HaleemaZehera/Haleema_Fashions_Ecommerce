@@ -12,16 +12,15 @@ import Navbar from "../Navbar/Navbar";
 
 const Mens = () => {
   const dispatch = useDispatch();
-  const searchs = useSelector((state)=> state.searchs.searchs)
-  if(searchs.length >= 1){
-    dispatch(getFilter_product_Men(searchs))
-    dispatch(addSearch([]))
-
-
+  const searchs = useSelector((state) => state.searchs.searchs);
+  if (searchs.length >= 1) {
+    dispatch(getFilter_product_Men(searchs));
+    dispatch(addSearch([]));
   }
 
   const handleFilter = (data) => {
-    dispatch(getFilter_product_Men(data));
+    const menData = data.target.value;
+    dispatch(getFilter_product_Men(menData));
     console.log("data", data);
   };
 
@@ -52,14 +51,11 @@ const Mens = () => {
         <div className={Styles.filter_div_left}>
           <div>Filter By Brand</div>
           <div className={Styles.filter_div_left_brand}>
-            <div>
-              <button onClick={() => handleFilter("shirts")}>Shirts</button>
-            </div>
-            <div>
-              <button onClick={() => handleFilter("Loungewear")}>
-                Loungewear
-              </button>
-            </div>
+            <select onChange={handleFilter} name="" id="">
+              <option>Select brand</option>
+              <option value="shirts">Shirts</option>
+              <option value="Loungewear">Loungewear</option>
+            </select>
           </div>
         </div>
         <div className={Styles.sort_div_right}>
@@ -75,9 +71,7 @@ const Mens = () => {
       </div>
 
       <div className={Styles.Product_Container}>
-        <div>
-          <h1></h1>
-        </div>
+     
         {products.map((ele) => {
           return (
             <div className={Styles.Product_Child}>
@@ -112,3 +106,14 @@ const Mens = () => {
 };
 
 export default Mens;
+
+{
+  /* <div>
+<button onClick={() => handleFilter("shirts")}>Shirts</button>
+</div>
+<div>
+<button onClick={() => handleFilter("Loungewear")}>
+  Loungewear
+</button>
+</div> */
+}

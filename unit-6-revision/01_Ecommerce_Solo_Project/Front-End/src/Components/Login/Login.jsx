@@ -13,6 +13,11 @@ export default function Login() {
     password: "",
     role: "",
   });
+
+
+
+
+
   const handleLogin = (e) => {
     const { name, value } = e.target;
     setUser({ ...user, [name]: value });
@@ -23,6 +28,7 @@ export default function Login() {
     axios.post("http://localhost:5000/login", user).then((res) => {
       // console.log();
       localStorage.setItem("token",JSON.stringify(res.data.token.split(".")[0]))
+  
       // localStorage.getItem()
       // dispatch(loginToken(res.data.token.split(".")[0]));
     });

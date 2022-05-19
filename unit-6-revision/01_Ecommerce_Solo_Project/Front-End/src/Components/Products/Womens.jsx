@@ -13,18 +13,17 @@ import Navbar from "../Navbar/Navbar";
 
 const Womens = () => {
   const dispatch = useDispatch();
-  const searchs = useSelector((state)=> state.searchs.searchs)
-  if(searchs.length >= 1){
-    dispatch(getFilter_product_Women(searchs))
-    dispatch(addSearch([]))
-
-
+  const searchs = useSelector((state) => state.searchs.searchs);
+  if (searchs.length >= 1) {
+    dispatch(getFilter_product_Women(searchs));
+    dispatch(addSearch([]));
   }
 
   // const womens = useSelector((state) => state.products.products_data);
 
   const handleFilter = (data) => {
-    dispatch(getFilter_product_Women(data));
+    const womenData = data.target.value;
+    dispatch(getFilter_product_Women(womenData));
     console.log("data", data);
   };
 
@@ -53,18 +52,13 @@ const Womens = () => {
         <div className={Styles.filter_div_left}>
           <div>Filter By Brand</div>
           <div className={Styles.filter_div_left_brand}>
-            <div>
-              <button onClick={() => handleFilter("skirt")}>Skirt</button>
-            </div>
-            <div>
-              <button onClick={() => handleFilter("jacket")}>Jacket</button>
-            </div>
-            <div>
-              <button onClick={() => handleFilter("bottom")}>Bottom</button>
-            </div>
-            <div>
-              <button onClick={() => handleFilter("dress")}>Dress</button>
-            </div>
+            <select onChange={handleFilter}>
+              <option >Select Brand</option>
+              <option value="skirt">skirt</option>
+              <option value="jacket">Jacket</option>
+              <option value="bottom">bottom</option>
+              <option value="dress">Dress</option>
+            </select>
           </div>
           <div className={Styles.sort_div_right}>
             <div>Sort By Price</div>
@@ -80,9 +74,7 @@ const Womens = () => {
       </div>
 
       <div className={Styles.Product_Container}>
-        <div>
-          <h1>Women's Products</h1>
-        </div>
+      
 
         {products.map((ele) => {
           return (
@@ -100,7 +92,7 @@ const Womens = () => {
             //     <p>Category : {ele.category}</p>
             //     <p>Color : {ele.color}</p>
             //     <div className={Styles.Product_CartContainer}>
-                  
+
             //       <button
             //         className={Styles.Product_Cart}
             //         onClick={() => handleAddCart(ele._id)}
@@ -111,37 +103,34 @@ const Womens = () => {
             //   </div>
             // </div>
 
-
-
-
             <>
-            <div className={Styles.Product_Child}>   
-            {/* //card */}
-              <Link to={`/details/${ele._id}`} className={Styles.decoration}>
-                <div className={Styles.Product_Image}> 
-                 {/* //Image_url */}
-                  <img
-                    className={Styles.Product_ImageImg}
-                    src={ele.image_url}
-                    alt=""
-                  />
-                </div>
-                <div className={Styles.Product_Description}>  
-                 {/* //contnt */}
-                  <p>Brand : {ele.name}</p>
-                  <p>Price : {ele.price}</p>
-                  <p>Rating : {ele.brand}</p>
-                  <p>Size : {ele.color}</p>
-                </div>
-              </Link>
-              <button
-                className={Styles.Product_Cart}
-                onClick={() => handleAddCart(ele._id)}
-              >
-                Add to Cart
-              </button>
-            </div>
-          </>
+              <div className={Styles.Product_Child}>
+                {/* //card */}
+                <Link to={`/details/${ele._id}`} className={Styles.decoration}>
+                  <div className={Styles.Product_Image}>
+                    {/* //Image_url */}
+                    <img
+                      className={Styles.Product_ImageImg}
+                      src={ele.image_url}
+                      alt=""
+                    />
+                  </div>
+                  <div className={Styles.Product_Description}>
+                    {/* //contnt */}
+                    <p>Brand : {ele.name}</p>
+                    <p>Price : {ele.price}</p>
+                    <p>Rating : {ele.brand}</p>
+                    <p>Size : {ele.color}</p>
+                  </div>
+                </Link>
+                <button
+                  className={Styles.Product_Cart}
+                  onClick={() => handleAddCart(ele._id)}
+                >
+                  Add to Cart
+                </button>
+              </div>
+            </>
           );
         })}
       </div>
@@ -150,3 +139,16 @@ const Womens = () => {
 };
 
 export default Womens;
+
+// <div>
+// <button onClick={() => handleFilter("skirt")}>Skirt</button>
+// </div>
+// <div>
+// <button onClick={() => handleFilter("jacket")}>Jacket</button>
+// </div>
+// <div>
+// <button onClick={() => handleFilter("bottom")}>Bottom</button>
+// </div>
+// <div>
+// <button onClick={() => handleFilter("dress")}>Dress</button>
+// </div>

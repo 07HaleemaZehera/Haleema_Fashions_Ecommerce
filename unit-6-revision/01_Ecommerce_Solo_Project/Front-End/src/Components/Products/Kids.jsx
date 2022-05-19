@@ -6,7 +6,6 @@ import {
   getFilter_product_Kid,
   getKid_Json_Data,
   getKid_Sorting_product,
- 
 } from "../../Redux/Actions/actionProducts";
 import { addSearch } from "../../Redux/Actions/actionSearch";
 import Styles from "../../Styles/StylesProduct.module.css";
@@ -15,24 +14,17 @@ import Navbar from "../Navbar/Navbar";
 const Womens = () => {
   const products = useSelector((state) => state.products.kid_data);
 
-  const searchs = useSelector((state)=> state.searchs.searchs)
+  const searchs = useSelector((state) => state.searchs.searchs);
   const dispatch = useDispatch();
-  if(searchs.length >= 1){
-    dispatch(getFilter_product_Kid(searchs))
-    dispatch(addSearch([]))
-
-
+  if (searchs.length >= 1) {
+    dispatch(getFilter_product_Kid(searchs));
+    dispatch(addSearch([]));
   }
- 
-  
-  
 
   const handleFilter = (data) => {
-    dispatch(getFilter_product_Kid(data));
+    const kidData=data.target.value
+    dispatch(getFilter_product_Kid(kidData));
   };
-
-
-  
 
   const handleSorting = (e) => {
     let value = e.target.value;
@@ -42,8 +34,8 @@ const Womens = () => {
 
   useEffect(() => {
     dispatch(getKid_Json_Data("Kid"));
-  }, []);   
-  
+  }, []);
+
   const handleAddCart = (id) => {
     dispatch(AddtCartData(id));
   };
@@ -58,21 +50,14 @@ const Womens = () => {
         <div className={Styles.filter_div_left}>
           <div>Filter By Brand</div>
           <div className={Styles.filter_div_left_brand}>
-            <div>
-              <button onClick={() => handleFilter("Jeans")}>Jeans</button>
-            </div>
-            <div>
-              <button onClick={() => handleFilter("Hoodie")}>Hoodie</button>
-            </div>
-            <div>
-              <button onClick={() => handleFilter("Pajamas")}>Pajamas</button>
-            </div>
-            <div>
-              <button onClick={() => handleFilter("shirts")}>Shirts</button>
-            </div>
-            <div>
-              <button onClick={() => handleFilter("Masks")}>Masks</button>
-            </div>
+            <select onChange={handleFilter} name="" id="" >
+              <option>Select Brand</option>
+              <option value="Jeans">Jeans</option>
+              <option value="Hoodie">Hoodie</option>
+              <option value="Pajamas">Pajamas</option>
+              <option value="shirts">Shirts</option>
+              <option value="Masks">Masks</option>
+            </select>
           </div>
           <div className={Styles.sort_div_right}>
             <div>Sort By Price</div>
@@ -88,10 +73,7 @@ const Womens = () => {
       </div>
 
       <div className={Styles.Product_Container}>
-        <div>
-          <h1>Kids Products</h1>
-        </div>
-
+       
         {products.map((ele) => {
           return (
             // <div className={Styles.Product_Child}>
@@ -120,33 +102,33 @@ const Womens = () => {
             // </div>
 
             <>
-            <div className={Styles.Product_Child}>   
-            {/* //card */}
-              <Link to={`/details/${ele._id}`} className={Styles.decoration}>
-                <div className={Styles.Product_Image}> 
-                 {/* //Image_url */}
-                  <img
-                    className={Styles.Product_ImageImg}
-                    src={ele.Image_url}
-                    alt=""
-                  />
-                </div>
-                <div className={Styles.Product_Description}>  
-                 {/* //contnt */}
-                  <p>Name: {ele.name}</p>
-                  <p>Price : {ele.price}</p>
-                  <p> Category: {ele.brand}</p>
-                  <p>Color: {ele.color}</p>
-                </div>
-              </Link>
-              <button
-                className={Styles.Product_Cart}
-                onClick={() => handleAddCart(ele._id)}
-              >
-                Add to Cart
-              </button>
-            </div>
-          </>
+              <div className={Styles.Product_Child}>
+                {/* //card */}
+                <Link to={`/details/${ele._id}`} className={Styles.decoration}>
+                  <div className={Styles.Product_Image}>
+                    {/* //Image_url */}
+                    <img
+                      className={Styles.Product_ImageImg}
+                      src={ele.Image_url}
+                      alt=""
+                    />
+                  </div>
+                  <div className={Styles.Product_Description}>
+                    {/* //contnt */}
+                    <p>Name: {ele.name}</p>
+                    <p>Price : {ele.price}</p>
+                    <p> Category: {ele.brand}</p>
+                    <p>Color: {ele.color}</p>
+                  </div>
+                </Link>
+                <button
+                  className={Styles.Product_Cart}
+                  onClick={() => handleAddCart(ele._id)}
+                >
+                  Add to Cart
+                </button>
+              </div>
+            </>
           );
         })}
       </div>
