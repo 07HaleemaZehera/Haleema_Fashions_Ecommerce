@@ -1,9 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import Styles from "../../Styles/Styles.module.css";
 import { Link, useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { addSearch } from "../../Redux/Actions/actionSearch";
 export default function Navbar() {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const searchs = useSelector((state) => state.searchs.searchs);
+  // console.log('searchs', searchs);
   // const nav
+  const [search, setSearch] = useState("");
+  const handleSearchBtn = () => {
+    dispatch(addSearch(search));
+  };
   return (
     <nav className={Styles.Nav}>
       <div className={Styles.LeftNavBar}>
@@ -22,6 +31,11 @@ export default function Navbar() {
               <p className={Styles.men}> All Products</p>
             </Link>
           </div> */}
+          <div className={Styles.men}>
+            <Link to={"/"}>
+              <p className={Styles.men}>Home</p>
+            </Link>
+          </div>
           <div className={Styles.men}>
             <Link to={"/product/men"}>
               <p className={Styles.men}>Men</p>
@@ -47,11 +61,18 @@ export default function Navbar() {
             placeholder="Search...."
             className={Styles.Inputs_search}
             type="text"
-            onChange={""}
+            onChange={(e) => setSearch(e.target.value)}
           />{" "}
+          <a href="##" className={Styles.icon}>
+            <i class="fas fa-search"></i>
+          </a>
         </div>
         <div>
-          <input type="Submit" className={Styles.InputsBtn} />
+          <input
+            type="Submit"
+            onClick={handleSearchBtn}
+            className={Styles.InputsBtn}
+          />
         </div>
         <div className={Styles.register_Icon}>
           <Link className={Styles.register_Icon} to="/registerlogin">
@@ -63,7 +84,6 @@ export default function Navbar() {
           </Link>
         </div>
 
-        
         <div className={Styles.cart_Icon}>
           <Link className={Styles.cart_Icon} to={"/cart"}>
             {" "}

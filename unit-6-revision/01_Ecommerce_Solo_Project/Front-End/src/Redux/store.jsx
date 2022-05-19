@@ -3,9 +3,11 @@ import {getJson_reducer_Products} from "./Reducers/reducerProducts"
 
 import thunk from "redux-thunk";
 import { LoginReducer } from "./Reducers/LoginReducer";
+import { searchReducer } from "./Reducers/searchReducer";
 const rootReducer=combineReducers({
     products:getJson_reducer_Products,
-    tokenLogin:LoginReducer
+    tokenLogin:LoginReducer,
+    searchs :searchReducer
 })
 
 const composeEnhancers =

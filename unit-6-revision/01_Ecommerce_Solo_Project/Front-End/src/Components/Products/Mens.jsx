@@ -6,12 +6,19 @@ import {
   getMen_Json_Data,
   getMen_Sorting_product,
 } from "../../Redux/Actions/actionProducts";
+import { addSearch } from "../../Redux/Actions/actionSearch";
 import Styles from "../../Styles/StylesProduct.module.css";
 import Navbar from "../Navbar/Navbar";
 
 const Mens = () => {
   const dispatch = useDispatch();
-  const mens = useSelector((state) => state.products.men_data);
+  const searchs = useSelector((state)=> state.searchs.searchs)
+  if(searchs.length >= 1){
+    dispatch(getFilter_product_Men(searchs))
+    dispatch(addSearch([]))
+
+
+  }
 
   const handleFilter = (data) => {
     dispatch(getFilter_product_Men(data));

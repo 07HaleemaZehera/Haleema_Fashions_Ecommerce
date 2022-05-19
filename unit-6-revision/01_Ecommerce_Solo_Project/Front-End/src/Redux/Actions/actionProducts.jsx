@@ -143,6 +143,7 @@ export const getFilter_product_Women = (data) => (dispatch) => {
 };
 
 export const getFilter_product_Kid = (data) => (dispatch) => {
+  console.log('data action ', data);
   dispatch(loadingJson_action_products());
   try {
     axios

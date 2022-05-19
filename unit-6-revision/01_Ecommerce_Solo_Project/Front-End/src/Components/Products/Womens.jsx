@@ -7,13 +7,21 @@ import {
   getwomen_Json_Data,
   getWomen_Sorting_product,
 } from "../../Redux/Actions/actionProducts";
+import { addSearch } from "../../Redux/Actions/actionSearch";
 import Styles from "../../Styles/StylesProduct.module.css";
 import Navbar from "../Navbar/Navbar";
 
 const Womens = () => {
   const dispatch = useDispatch();
+  const searchs = useSelector((state)=> state.searchs.searchs)
+  if(searchs.length >= 1){
+    dispatch(getFilter_product_Women(searchs))
+    dispatch(addSearch([]))
 
-  const womens = useSelector((state) => state.products.products_data);
+
+  }
+
+  // const womens = useSelector((state) => state.products.products_data);
 
   const handleFilter = (data) => {
     dispatch(getFilter_product_Women(data));

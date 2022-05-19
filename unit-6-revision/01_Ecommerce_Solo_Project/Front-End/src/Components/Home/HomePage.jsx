@@ -1,4 +1,5 @@
 import React from 'react'
+import { useSelector } from 'react-redux'
 import Styles from "../../Styles/Styles.module.css"
 import Footer from '../Footer/Footer'
 import Navbar from '../Navbar/Navbar'
@@ -7,6 +8,8 @@ import MenSlide from "./MenSlide"
 import Slider from './Slider'
 
 export default function HomePage() {
+  const searchs = useSelector((state)=> state.searchs.searchs)
+  console.log('searchs', searchs);
   return (
     <div className={Styles.HomeBigContainer}>
        <div className={Styles.welcome}>

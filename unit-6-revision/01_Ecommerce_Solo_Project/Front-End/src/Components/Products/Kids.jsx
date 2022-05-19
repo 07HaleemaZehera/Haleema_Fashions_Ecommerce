@@ -4,23 +4,35 @@ import { Link } from "react-router-dom";
 import {
   AddtCartData,
   getFilter_product_Kid,
-  getFilter_product_Women,
   getKid_Json_Data,
   getKid_Sorting_product,
  
 } from "../../Redux/Actions/actionProducts";
+import { addSearch } from "../../Redux/Actions/actionSearch";
 import Styles from "../../Styles/StylesProduct.module.css";
 import Navbar from "../Navbar/Navbar";
 
 const Womens = () => {
-  const dispatch = useDispatch();
+  const products = useSelector((state) => state.products.kid_data);
 
-  const kids = useSelector((state) => state.products.kid_data);
+  const searchs = useSelector((state)=> state.searchs.searchs)
+  const dispatch = useDispatch();
+  if(searchs.length >= 1){
+    dispatch(getFilter_product_Kid(searchs))
+    dispatch(addSearch([]))
+
+
+  }
+ 
+  
+  
 
   const handleFilter = (data) => {
     dispatch(getFilter_product_Kid(data));
-    console.log("data", data);
   };
+
+
+  
 
   const handleSorting = (e) => {
     let value = e.target.value;
@@ -30,9 +42,8 @@ const Womens = () => {
 
   useEffect(() => {
     dispatch(getKid_Json_Data("Kid"));
-  }, []);
-  const products = useSelector((state) => state.products.kid_data);
-  console.log("products page", products);
+  }, []);   
+  
   const handleAddCart = (id) => {
     dispatch(AddtCartData(id));
   };
@@ -57,7 +68,7 @@ const Womens = () => {
               <button onClick={() => handleFilter("Pajamas")}>Pajamas</button>
             </div>
             <div>
-              <button onClick={() => handleFilter("shirts")}>shirts</button>
+              <button onClick={() => handleFilter("shirts")}>Shirts</button>
             </div>
             <div>
               <button onClick={() => handleFilter("Masks")}>Masks</button>
@@ -122,10 +133,10 @@ const Womens = () => {
                 </div>
                 <div className={Styles.Product_Description}>  
                  {/* //contnt */}
-                  <p>Brand : {ele.name}</p>
+                  <p>Name: {ele.name}</p>
                   <p>Price : {ele.price}</p>
-                  <p>Rating : {ele.brand}</p>
-                  <p>Size : {ele.color}</p>
+                  <p> Category: {ele.brand}</p>
+                  <p>Color: {ele.color}</p>
                 </div>
               </Link>
               <button
