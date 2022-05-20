@@ -26,7 +26,7 @@ I 😎Haleema Zehera from the Masai Web-14 batch who worked on self🤟 built ec
 ### Checkout Page
 ![](https://github.com/07HaleemaZehera/Haleema_Fashions_Ecommerce/blob/main/Screenshot%20(753).png)
 
-### Shipping Address Page
+### Payment Page
 ![](https://github.com/07HaleemaZehera/Haleema_Fashions_Ecommerce/blob/main/Screenshot%20(754).png)
 
 ### Sign up Page
@@ -59,7 +59,7 @@ To run, follow these steps:
 - Express js
 - Material Ui
 
-## Creators
+## Creator
 
 - [@07HaleemaZehera](https://github.com/07HaleemaZehera)
 
