@@ -41,7 +41,6 @@ router.get("", async (req, res) => {
 });
 
 router.get("/sortasc", async (req, res) => {
-  console.log(req.query);
   // req. query. color2 === 'blue'
   try {
     const womens = await Womens.find().sort({ price: 1 }).lean().exec();
@@ -52,7 +51,6 @@ router.get("/sortasc", async (req, res) => {
 });
 
 router.get("/sortdesc", async (req, res) => {
-  console.log(req.query);
   // req. query. color2 === 'blue'
   try {
     const womens = await Womens.find().sort({ price: -1 }).lean().exec();
@@ -66,7 +64,6 @@ router.get("/sortdesc", async (req, res) => {
 
 
 router.get("/:id", async (req, res) => {
-  console.log("aa",req.params.id);
   // req. query. color2 === 'blue'
   try {
     const womens = await Womens.findById({_id:req.params.id}).lean().exec();

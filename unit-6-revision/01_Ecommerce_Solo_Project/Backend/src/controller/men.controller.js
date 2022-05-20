@@ -36,13 +36,11 @@ router.post("/", async(req,res)=>
     
     try {
         if(req.query.category==undefined){
-    console.log(req.query)
 
             const mens= await Mens.find().lean().exec();
             return  res.status(201).send(mens)
         }
      else{
-    console.log(req.query.category)
 
         const mens= await Mens.find({category:req.query.category}).lean().exec();
         return  res.status(201).send(mens)
@@ -56,7 +54,6 @@ router.post("/", async(req,res)=>
 
 
   router.get("",async(req,res)=>{
-    console.log("query")
     // req. query. color2 === 'blue'
     try {
         
@@ -71,7 +68,6 @@ router.post("/", async(req,res)=>
 
 
   router.get("/sortasc",async(req,res)=>{
-    console.log(req.query)
     // req. query. color2 === 'blue'
     try {
         const mens= await Mens.find().sort({price:1}).lean().exec();
@@ -85,7 +81,6 @@ router.post("/", async(req,res)=>
    
 
   router.get("/sortdesc",async(req,res)=>{
-    console.log(req.query)
     // req. query. color2 === 'blue'
     try {
         const mens= await Mens.find().sort({price:-1}).lean().exec();
@@ -99,7 +94,6 @@ router.post("/", async(req,res)=>
 
 
  router.get("/:id", async (req, res) => {
-  console.log("aa",req.params.id);
   // req. query. color2 === 'blue'
   try {
     const mens = await Mens.findById({_id:req.params.id}).lean().exec();

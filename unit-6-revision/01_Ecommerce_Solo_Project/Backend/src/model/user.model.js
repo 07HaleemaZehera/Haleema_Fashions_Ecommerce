@@ -26,3 +26,4 @@ userSchema.methods.checkPassword = function (password) {
 const User = mongoose.model('user', userSchema)
 
 module.exports = User
+

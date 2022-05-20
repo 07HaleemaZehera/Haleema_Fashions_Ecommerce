@@ -8,6 +8,7 @@ const generateToken = (user)=>
 {
     return jwt.sign({user},process.env.Secret_key);
 }
+// console.log('process.env.Secret_key', process.env.Secret_key);
 
 
 const register = async(req,res)=>

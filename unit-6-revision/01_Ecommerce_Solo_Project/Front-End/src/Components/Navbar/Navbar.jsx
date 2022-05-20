@@ -90,11 +90,3 @@ export default function Navbar() {
   );
 }
 
-// mens
-// womens
-// logo redirect
-// accessories
-// kids
-// cart
-// signup
-// login
