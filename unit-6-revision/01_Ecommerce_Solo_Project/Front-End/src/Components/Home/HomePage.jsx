@@ -1,5 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import Styles from "../../Styles/Styles.module.css";
 import Footer from "../Footer/Footer";
 import Navbar from "../Navbar/Navbar";
@@ -10,6 +11,7 @@ import MenSlide from "./MenSlide";
 import Slider from "./Slider";
 
 export default function HomePage() {
+  const navigate=useNavigate()
   const searchs = useSelector((state) => state.searchs.searchs);
   console.log("searchs", searchs);
   return (
@@ -24,15 +26,15 @@ export default function HomePage() {
         <div className={Styles.Navbar}>
           <Navbar />
         </div>
-        <div className={Styles.Slider}>
+        <div  onClick={()=>navigate("/product/women")} className={Styles.Slider}>
           <Slider></Slider>
         </div>
         <br></br>
-        <div className={Styles.Slider}>
+        <div onClick={()=>navigate("/product/men")} className={Styles.Slider}>
           <MenSlide />
         </div>
        
-        <div className={Styles.Features}>
+        <div onClick={()=>navigate("/kid")} className={Styles.Features}>
           <Features />
         </div>
         <div className={Styles.Features2}>
