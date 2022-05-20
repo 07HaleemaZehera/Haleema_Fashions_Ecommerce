@@ -1,11 +1,11 @@
-## Haleema Fashions
+## Haleema Fashions👗👚👚
 
 
 
 <table>
 <tr>
 <td>
-I Haleema Zehera from the Masai Web-14 batch who worked on selt built ecommerce website as part of our  placements preparation. As it was a individual , I was given a project to built self ecommerce website. My project demonstrates a basic flow of an e-commerce page, where a customer can view and filter products, add their product to a cart and place his or her happy order.
+I 😎Haleema Zehera from the Masai Web-14 batch who worked on self🤟 built ecommerce website as part of our  placements preparation. As it was a individual , I was given a project to built self ecommerce website. My project demonstrates a basic flow of an e-commerce page, where a customer can view and filter products, add their product to a cart and place his or her happy order.
 </td>
 </tr>
 
@@ -14,25 +14,24 @@ I Haleema Zehera from the Masai Web-14 batch who worked on selt built ecommerce 
 
 ### Home Page
 
-![](https://github.com/m-sehrawat/Adidas-Website-Clone/blob/main/Adidas%20Clone%20Screen%20Shots/Home%20page.png?raw=true)
+![](https://github.com/07HaleemaZehera/Haleema_Fashions_Ecommerce/blob/main/Screenshot%20(745).png)
 
 ### Product Page
-![](https://github.com/m-sehrawat/Adidas-Website-Clone/blob/main/Adidas%20Clone%20Screen%20Shots/Products%20Page.png?raw=true)
+![](https://github.com/07HaleemaZehera/Haleema_Fashions_Ecommerce/blob/main/Screenshot%20(748).png)
+<br>
+![](https://github.com/07HaleemaZehera/Haleema_Fashions_Ecommerce/blob/main/Screenshot%20(749).png)
 
-### Product Description Page
-![](https://github.com/m-sehrawat/Adidas-Website-Clone/blob/main/Adidas%20Clone%20Screen%20Shots/Product%20Description%20Page.png?raw=true)
+
 
 ### Checkout Page
-![](https://github.com/m-sehrawat/Adidas-Website-Clone/blob/main/Adidas%20Clone%20Screen%20Shots/Checkout%20Page.png?raw=true)
+![](https://github.com/07HaleemaZehera/Haleema_Fashions_Ecommerce/blob/main/Screenshot%20(753).png)
 
 ### Shipping Address Page
-![](https://github.com/m-sehrawat/Adidas-Website-Clone/blob/main/Adidas%20Clone%20Screen%20Shots/Shipping%20Address%20page.png?raw=true)
+![](https://github.com/07HaleemaZehera/Haleema_Fashions_Ecommerce/blob/main/Screenshot%20(754).png)
 
 ### Sign up Page
-![](https://github.com/m-sehrawat/Adidas-Website-Clone/blob/main/Adidas%20Clone%20Screen%20Shots/Sign%20Up%20page.png?raw=true)
+![](https://github.com/07HaleemaZehera/Haleema_Fashions_Ecommerce/blob/main/Screenshot%20(750).png)
 
-### Payment Page
-![](https://github.com/m-sehrawat/Adidas-Website-Clone/blob/main/Adidas%20Clone%20Screen%20Shots/Payment%20Page.png?raw=true)
 
 
 
