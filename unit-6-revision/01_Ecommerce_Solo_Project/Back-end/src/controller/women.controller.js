@@ -62,4 +62,21 @@ router.get("/sortdesc", async (req, res) => {
   }
 });
 
+
+
+
+router.get("/:id", async (req, res) => {
+  console.log("aa",req.params.id);
+  // req. query. color2 === 'blue'
+  try {
+    const womens = await Womens.findById({_id:req.params.id}).lean().exec();
+    return res.status(201).send(womens);
+  } catch (error) {
+    return res.status(500).send({ error: error.message });
+  }
+});
+
+
+
+
 module.exports = router;

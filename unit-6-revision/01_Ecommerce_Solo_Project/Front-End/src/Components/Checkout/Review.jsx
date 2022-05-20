@@ -32,9 +32,7 @@ export default function Review() {
     payments.push(PaymentData)
 
   }
-  else{
-
-  }
+  
 
   return (
     <React.Fragment>
@@ -43,9 +41,9 @@ export default function Review() {
       </Typography>
       <List disablePadding>
         {CartData.map((product) => (
-          <ListItem key={product.Brand} sx={{ py: 1, px: 0 }}>
-            <ListItemText primary={product.Brand} secondary={product.Description} />
-            <Typography variant="body2">{product.Price}</Typography>
+          <ListItem key={product.brand} sx={{ py: 1, px: 0 }}>
+            <ListItemText primary={product.brand} secondary={product.name} />
+            <Typography variant="body2">{product.price}</Typography>
           </ListItem>
         ))}
 

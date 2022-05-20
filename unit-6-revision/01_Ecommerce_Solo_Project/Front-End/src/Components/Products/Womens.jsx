@@ -6,6 +6,7 @@ import {
   getFilter_product_Women,
   getwomen_Json_Data,
   getWomen_Sorting_product,
+  kidsTypes,
 } from "../../Redux/Actions/actionProducts";
 import { addSearch } from "../../Redux/Actions/actionSearch";
 import Styles from "../../Styles/StylesProduct.module.css";
@@ -44,6 +45,8 @@ const Womens = () => {
 
   return (
     <>
+      <div className={Styles.main_container}>
+        <br />
       <div className={Styles.Navbar}>
         <Navbar />
       </div>
@@ -60,7 +63,9 @@ const Womens = () => {
               <option value="dress">Dress</option>
             </select>
           </div>
-          <div className={Styles.sort_div_right}>
+          
+        </div>
+        <div className={Styles.sort_div_right}>
             <div>Sort By Price</div>
             <div>
               <select name="" id="" onChange={handleSorting}>
@@ -70,8 +75,9 @@ const Womens = () => {
               </select>
             </div>
           </div>
-        </div>
       </div>
+<br></br>
+
 
       <div className={Styles.Product_Container}>
       
@@ -106,7 +112,7 @@ const Womens = () => {
             <>
               <div className={Styles.Product_Child}>
                 {/* //card */}
-                <Link to={`/details/${ele._id}`} className={Styles.decoration}>
+                <Link onClick={()=>dispatch(kidsTypes("womens"))}  to={`/details/${ele._id}`} className={Styles.decoration}>
                   <div className={Styles.Product_Image}>
                     {/* //Image_url */}
                     <img
@@ -119,8 +125,8 @@ const Womens = () => {
                     {/* //contnt */}
                     <p>Brand : {ele.name}</p>
                     <p>Price : {ele.price}</p>
-                    <p>Rating : {ele.brand}</p>
-                    <p>Size : {ele.color}</p>
+                    <p>Category : {ele.brand}</p>
+                    <p>Color : {ele.color}</p>
                   </div>
                 </Link>
                 <button
@@ -133,6 +139,8 @@ const Womens = () => {
             </>
           );
         })}
+      </div>
+
       </div>
     </>
   );

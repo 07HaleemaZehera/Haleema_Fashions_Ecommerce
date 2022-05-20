@@ -43,6 +43,7 @@ export default function RegisterLogin() {
     });
   };
   return (
+    <>
     <div className={Styles.login_container}>
     <h1>Register/Sign Up</h1>
     <div className={Styles.login_input}>
@@ -83,7 +84,7 @@ export default function RegisterLogin() {
       <div className={Styles.login_btn}>
         <Link to="/login" className={Styles.link_btn}>
           {" "}
-          Already a user? Click here
+          Already a user? Click here 
           <button
             className={Styles.submits}
             type="submit"
@@ -95,6 +96,7 @@ export default function RegisterLogin() {
       </div>
     </div>
   </div>
+    </>
   );
 }
 // http://localhost:5000/login

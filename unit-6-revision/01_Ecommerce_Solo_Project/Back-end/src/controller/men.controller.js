@@ -94,8 +94,20 @@ router.post("/", async(req,res)=>
     } catch (error) {
         return res.status(500).send({error:error.message})
     }
- })
+ });
 
+
+
+ router.get("/:id", async (req, res) => {
+  console.log("aa",req.params.id);
+  // req. query. color2 === 'blue'
+  try {
+    const mens = await Mens.findById({_id:req.params.id}).lean().exec();
+    return res.status(201).send(mens);
+  } catch (error) {
+    return res.status(500).send({ error: error.message });
+  }
+});
 
 
 

@@ -1,10 +1,12 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 import {
   AddtCartData,
   getFilter_product_Men,
   getMen_Json_Data,
   getMen_Sorting_product,
+  kidsTypes,
 } from "../../Redux/Actions/actionProducts";
 import { addSearch } from "../../Redux/Actions/actionSearch";
 import Styles from "../../Styles/StylesProduct.module.css";
@@ -43,7 +45,9 @@ const Mens = () => {
 
   return (
     <>
-      <div className={Styles.Navbar}>
+     <div className={Styles.main_container}>
+       <br />
+     <div className={Styles.Navbar}>
         <Navbar />
       </div>
 
@@ -69,38 +73,69 @@ const Mens = () => {
           </div>
         </div>
       </div>
+      <br></br>
 
       <div className={Styles.Product_Container}>
-     
         {products.map((ele) => {
           return (
+            // <div className={Styles.Product_Child}>
+            //   <div className={Styles.Product_Image}>
+            //     <img
+            //       className={Styles.Product_ImageImg}
+            //       src={ele.image_url}
+            //       alt=""
+            //     />
+            //   </div>
+            //   <div className={Styles.Product_Description}>
+            //     <p>Name : {ele.brand}</p>
+            //     <p>Price : {ele.price}</p>
+            //     <p>Category : {ele.category}</p>
+            //     <p>Color : {ele.color}</p>
+            //     <div className={Styles.Product_CartContainer}>
+            //       {/* <button className={Styles.Product_Cart}>Add to Cart</button> */}
+            //       <button
+            //         className={Styles.Product_Cart}
+            //         onClick={() => handleAddCart(ele._id)}
+            //       >
+            //         Add to Cart
+            //       </button>
+            //     </div>
+            //   </div>
+            // </div>
+
+            <>
             <div className={Styles.Product_Child}>
-              <div className={Styles.Product_Image}>
-                <img
-                  className={Styles.Product_ImageImg}
-                  src={ele.image_url}
-                  alt=""
-                />
-              </div>
-              <div className={Styles.Product_Description}>
-                <p>Name : {ele.brand}</p>
-                <p>Price : {ele.price}</p>
-                <p>Category : {ele.category}</p>
-                <p>Color : {ele.color}</p>
-                <div className={Styles.Product_CartContainer}>
-                  {/* <button className={Styles.Product_Cart}>Add to Cart</button> */}
-                  <button
-                    className={Styles.Product_Cart}
-                    onClick={() => handleAddCart(ele._id)}
-                  >
-                    Add to Cart
-                  </button>
+              {/* //card */}
+              <Link onClick={()=>dispatch(kidsTypes("mens"))} to={`/details/${ele._id}`} className={Styles.decoration}>
+                <div className={Styles.Product_Image}>
+                  {/* //Image_url */}
+                  <img
+                    className={Styles.Product_ImageImg}
+                    src={ele.image_url}
+                    alt=""
+                  />
                 </div>
-              </div>
+                <div className={Styles.Product_Description}>
+                  {/* //contnt */}
+                  <p>Name: {ele.name}</p>
+                  <p>Price : {ele.price}</p>
+                  <p> Category: {ele.brand}</p>
+                  <p>Color: {ele.color}</p>
+                </div>
+              </Link>
+              <button
+                className={Styles.Product_Cart}
+                onClick={() => handleAddCart(ele._id)}
+              >
+                Add to Cart
+              </button>
             </div>
+          </>
+
           );
         })}
       </div>
+     </div>
     </>
   );
 };

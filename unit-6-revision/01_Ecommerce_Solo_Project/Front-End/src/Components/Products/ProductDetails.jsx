@@ -11,6 +11,13 @@ import Styles from "../../Styles/StylesProduct.module.css";
 import Navbar from "../Navbar/Navbar";
 
 export default function ProductDetails() {
+
+  
+  const description = useSelector(
+    (state) => state.products.description
+  );
+  console.log('description', description);
+
   // const isAuth = false;
   // const PrivateRouteBuy = ({ isAuth, children }) => {
   //  return isAuth==true ? children : alert("User not logged in");
@@ -27,11 +34,12 @@ export default function ProductDetails() {
   console.log("particularDatas", particularDatas);
   const dispatch = useDispatch();
   const { id } = useParams();
+  
   const handleBuy = () => {
     dispatch(AddHandleBuy(particularDatas));
   };
   useEffect(() => {
-    axios.get(`http://localhost:5000/kids/${id}`).then((data) => {
+    axios.get(`http://localhost:5000/${description}/${id}`).then((data) => {
       console.log('data', data);
       dispatch(particularData(data));
     });
@@ -50,7 +58,7 @@ export default function ProductDetails() {
               <div className={Styles.Detail_Image}>
                 <img
                   className={Styles.Detail_ImageChild}
-                  src={particularDatas.Image_url}
+                  src={particularDatas.image_url}
                   alt="image"
                 />
               </div>

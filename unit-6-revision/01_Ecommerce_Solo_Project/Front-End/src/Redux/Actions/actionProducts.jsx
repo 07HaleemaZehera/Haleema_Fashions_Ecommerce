@@ -55,6 +55,7 @@ export const getMen_Json_Data = (Men) => (dispatch) => {
       .then((data) => {
         console.log("data", data);
         dispatch({ type: GET_JSON_MEN_DATA, payload: data.data }); //senfd to reducer
+        dispatch({ type: GET_JSON_PRODUCT_DATA, payload: data.data }); //senfd to reducer
         dispatch(successJson_action_products());
       })
       .catch(() => {
@@ -73,6 +74,7 @@ export const getwomen_Json_Data = (Men) => (dispatch) => {
       .then((data) => {
         console.log("data", data);
         dispatch({ type: GET_JSON_WOMEN_DATA, payload: data.data }); //senfd to reducer
+        dispatch({ type: GET_JSON_PRODUCT_DATA, payload: data.data }); //senfd to reducer
         dispatch(successJson_action_products());
       })
       .catch(() => {
@@ -89,6 +91,7 @@ export const getKid_Json_Data = (Kid) => (dispatch) => {
       .then((data) => {
         console.log("data kid", data);
         dispatch({ type: "GET_JSON_KID_DATA", payload: data.data }); //senfd to reducer
+        dispatch({ type: "GET_JSON_PRODUCT_DATA", payload: data.data }); //senfd to reducer
       })
       .catch(() => {
       });
@@ -262,3 +265,11 @@ export const AddHandleBuy = (data) => {
     payload: data,
   };
 };
+
+
+export const kidsTypes=(data)=>{
+  return{
+    type:"KIDSTYPE",
+    payload:data
+  }
+}

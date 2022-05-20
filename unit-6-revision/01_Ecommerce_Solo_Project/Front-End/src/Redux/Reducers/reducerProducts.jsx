@@ -22,7 +22,8 @@ const initState = {
   cart: [],
   checkout: "",
   payment:"",
-  buyNow:{}
+  buyNow:{},
+  description:""
 };
 export const getJson_reducer_Products = (
   state = initState,
@@ -60,8 +61,11 @@ export const getJson_reducer_Products = (
       return { ...state, products_data: payload };
     case "ADD_CART_DATA":
       const cartData = state.products_data.filter((ele) => ele._id === payload); ///propducts arr check
+      console.log('products_data', state.products_data);
+      // console.log('cartData', cartData);
 
       const compareData = state.cart.filter((ele) => ele._id === payload);
+      console.log('compareData', compareData);
       console.log("payload", payload);
       if (compareData.length != 0) {
         return { ...state };
@@ -84,6 +88,12 @@ export const getJson_reducer_Products = (
       return { ...state, payment:payload};
     case ADD_HANDLE_BUY:
       return { ...state, buyNow:payload};
+    case "KIDSTYPE":
+      return { ...state, description:payload};
+
+   
+
+
     default:
       return state;
   }

@@ -3,25 +3,36 @@ import Styles from "../../Styles/Styles.module.css";
 
 const MenSlide = () => {
   return (
-    // <div className={Styles.SliderChild}>
-    <div className={Styles.SliderImages}>
-      <div style={{
-        fontSize:"20px",
-        fontFamily:"fantasy",
-        fontSynthesis:"revert"
-      }} className={Styles.Slider_Titiles}>
-        Men Ertugrul Collection{" "}
-      </div><br></br>
-      {/* <div className={Styles.Slider_images}>
-          {" "}
-          <img
-            src="https://media.istockphoto.com/photos/this-one-match-perfect-with-me-picture-id1293366109?b=1&k=20&m=1293366109&s=170667a&w=0&h=2z_h2WlM3291IRKFXrdmtObnCt93rNNdNN6mqvnKD1I="
-            className={Styles.imgTag}
-          />
-        </div> */}
-    </div>
-    // </div>
+    <>
+
+      <div className={Styles.mensContainer}>
+        <div className={Styles.mensSubContainer}>
+          <div className={Styles.men1}>
+            {" "}
+            <img className={Styles.men1img}
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQvmlW15wnBk_XSgGSbSyROqhAIuI9q8V9yInq0xUZJw2FwxERsFK8xWH1PMjsipB-IjT4&usqp=CAU"
+              alt=""
+            />
+          </div>
+          <div className={Styles.men1}>
+            {" "}
+            <img className={Styles.men1img}
+              src="https://i.pinimg.com/originals/2f/43/3b/2f433b057908b186325cabd04d44982b.jpg"
+              alt=""
+            />
+          </div>
+          <div className={Styles.men1}>
+            {" "}
+            <img className={Styles.men1img}
+              src="https://hoodarcheryshop.com/images/thumbs/0002355_ertugrul-ghazi-dress-uc-bey-kaftan-dress-costume-medieval-robe-kaftan-silk-robes-and-kimonos-ottoman_1200.jpeg"
+              alt=""
+            />
+          </div>
+        </div>
+      </div>
+    </>
   );
 };
 
 export default MenSlide;
+

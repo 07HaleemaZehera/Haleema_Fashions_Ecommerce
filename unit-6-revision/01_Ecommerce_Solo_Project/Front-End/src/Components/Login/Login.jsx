@@ -30,7 +30,7 @@ export default function Login() {
       localStorage.setItem("token",JSON.stringify(res.data.token.split(".")[0]))
   
       // localStorage.getItem()
-      // dispatch(loginToken(res.data.token.split(".")[0]));
+      dispatch(loginToken(res.data.token.split(".")[0]));
     });
 
   };

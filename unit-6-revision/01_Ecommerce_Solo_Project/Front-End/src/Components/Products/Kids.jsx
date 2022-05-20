@@ -6,6 +6,7 @@ import {
   getFilter_product_Kid,
   getKid_Json_Data,
   getKid_Sorting_product,
+  kidsTypes,
 } from "../../Redux/Actions/actionProducts";
 import { addSearch } from "../../Redux/Actions/actionSearch";
 import Styles from "../../Styles/StylesProduct.module.css";
@@ -42,7 +43,9 @@ const Womens = () => {
 
   return (
     <>
-      <div className={Styles.Navbar}>
+     <div className={Styles.main_container}>
+       <br></br>
+     <div className={Styles.Navbar}>
         <Navbar />
       </div>
 
@@ -59,7 +62,9 @@ const Womens = () => {
               <option value="Masks">Masks</option>
             </select>
           </div>
-          <div className={Styles.sort_div_right}>
+          
+        </div>
+        <div className={Styles.sort_div_right}>
             <div>Sort By Price</div>
             <div>
               <select name="" id="" onChange={handleSorting}>
@@ -69,9 +74,8 @@ const Womens = () => {
               </select>
             </div>
           </div>
-        </div>
       </div>
-
+<br></br>
       <div className={Styles.Product_Container}>
        
         {products.map((ele) => {
@@ -104,12 +108,12 @@ const Womens = () => {
             <>
               <div className={Styles.Product_Child}>
                 {/* //card */}
-                <Link to={`/details/${ele._id}`} className={Styles.decoration}>
+                <Link onClick={()=>dispatch(kidsTypes("kids"))} to={`/details/${ele._id}`} className={Styles.decoration}>
                   <div className={Styles.Product_Image}>
                     {/* //Image_url */}
                     <img
                       className={Styles.Product_ImageImg}
-                      src={ele.Image_url}
+                      src={ele.image_url}
                       alt=""
                     />
                   </div>
@@ -132,6 +136,7 @@ const Womens = () => {
           );
         })}
       </div>
+     </div>
     </>
   );
 };
